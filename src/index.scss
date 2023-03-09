@@ -1,0 +1,6 @@
+@import "./styles/example.scss"; // DON'T FORGET TO ADD SEMI COLON
+// we have access to variable from example scss because we imported
+
+#main {
+    color:$color;
+}
