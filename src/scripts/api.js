@@ -3,7 +3,7 @@ const options = {
   method: "GET",
   headers: {
     "Content-Type": "application/json",
-    "Accept": "application/json",
+    Accept: "application/json",
     "X-RapidAPI-Key": "5baae6da7amsh6d563cbf11ac2a0p1d6d56jsn48853ab50d67",
     "X-RapidAPI-Host": "mmo-games.p.rapidapi.com",
   },
@@ -13,6 +13,7 @@ let allData = null;
 let gamesByGenre = null;
 let gamesByPlatform = null;
 let gamesByPublisher = null;
+let gamesByReleaseDate = null;
 
 export async function getAllData(url, options) {
   try {
@@ -32,23 +33,33 @@ export async function getAllData(url, options) {
       gamesByGenre[genre].push(game);
     }
 
+    gamesByPlatform = {};
+    for (const game of allData) {
+      const platform = game.platform;
+      if (!gamesByPlatform[platform]) {
+        gamesByPlatform[platform] = [];
+      }
+      gamesByPlatform[platform].push(game);
+    }
 
-    gamesByPlatform ={}
-     for (const game of allData) {
-       const platform = game.platform;
-       if (!gamesByPlatform[platform]) {
-         gamesByPlatform[platform] = [];
-       }
-       gamesByPlatform[platform].push(game);
-     }
+    gamesByPublisher = {};
+    for (const game of allData) {
+      const publisher = game.publisher;
+      if (!gamesByPublisher[publisher]) {
+        gamesByPublisher[publisher] = [];
+      }
+      gamesByPublisher[publisher].push(game);
+    }
 
-     gamesByPublisher={}
+
+
+       gamesByReleaseDate = {};
        for (const game of allData) {
-         const publisher = game.publisher;
-         if (!gamesByPublisher[publisher]) {
-           gamesByPublisher[publisher] = [];
+         const release_date = game.release_date;
+         if (!gamesByReleaseDate[release_date]) {
+           gamesByReleaseDate[release_date] = [];
          }
-         gamesByPublisher[publisher].push(game);
+         gamesByReleaseDate[release_date].push(game);
        }
     /*
       this part is important because whole point of storing in to variable is to use it
@@ -56,7 +67,7 @@ export async function getAllData(url, options) {
       so i need to make sure it returns it as variable but it still going to return 'promise' because it
       did not resolve yet it was undefined for LONG TIME LOL...
     */
-    return {allData, gamesByGenre,gamesByPlatform,gamesByPublisher}; // it actually needs to return the promise value that has these data i want
+    return { allData, gamesByGenre, gamesByPlatform, gamesByPublisher,gamesByReleaseDate }; // it actually needs to return the promise value that has these data i want
   } catch (err) {
     console.error("error:" + err);
   }
@@ -71,18 +82,15 @@ export async function getAllData(url, options) {
   so its better to export this function that actually returns the data i need
 */
 export async function useData() {
-  if (!allData || !gamesByGenre || !gamesByPlatform || !gamesByPublisher) {
+  if (!allData || !gamesByGenre || !gamesByPlatform || !gamesByPublisher || !gamesByReleaseDate) {
     /* this is way to get out from call back hell and also we do not need to fetch EVERY SINGLE TIME*/
     await getAllData(games, options);
   }
   //save in array because i'd rather loop through array...
   // ok changing to object cuz actually i do forget which is which.. it is good to have key...
-  const data = {allData, gamesByGenre,gamesByPlatform,gamesByPublisher};
+  const data = { allData, gamesByGenre, gamesByPlatform, gamesByPublisher,gamesByReleaseDate,gamesByReleaseDate };
   return data;
 }
-
-
-
 
 /*re-fetch-able
 sort_by
@@ -97,8 +105,6 @@ onclick => fetch
 
 
  */
-
-
 
 
 

@@ -7,5 +7,7 @@ export const renderNavbar = () => {
     <li>News</li>
     <li>Giveaways</li>
     `;
+
+
 };
 

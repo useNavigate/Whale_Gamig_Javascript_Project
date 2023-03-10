@@ -13,7 +13,7 @@ export const renderSearchCards = (allData) => {
       <li>${game.genre}</li>
       <li>${game.short_description}</li>
       <li>${game.platform}<li>
-      </div>
+      </ul>
       </div>
       `;
     main.appendChild(card);
