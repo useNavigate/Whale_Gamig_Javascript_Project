@@ -12,11 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
  renderSearchBar()
  //render cards
  useData().then((allData)=>{
-   renderSearchCards(allData.allData)
-   console.log(allData.allData)
+   renderSearchCards(allData.allData);
+   handleSearch(allData.allData);
   })
 
-handleSearch()
+
 });
 
 

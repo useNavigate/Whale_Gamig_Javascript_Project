@@ -1,5 +1,3 @@
-
-
 export const renderSearchBar = () => {
   const navBar = document.getElementById("search");
   navBar.innerHTML = `
@@ -9,22 +7,22 @@ export const renderSearchBar = () => {
     `;
 };
 
-
-
-
-
-export function handleSearch(){
-const searchInput = document.getElementById("searchInput");
-    searchInput.addEventListener("input", (event) => {
-      event.preventDefault();
-      const searchTerm = event.target.value;
-      if (event.target.value.length > 3) {
-        console.log(searchTerm)
-      }
-    });
+export function handleSearch(games) {
+  const searchInput = document.getElementById("searchInput");
+  searchInput.addEventListener("keyup", (event) => {
+    event.preventDefault();
+    const searchTerm = event.target.value;
+    console.log(`searching : ${searchTerm}`);
+    getSearchResult(games, searchTerm);
+  });
 }
 
-
-// function getSearchResult(){
-
-// }
+function getSearchResult(games, searchTerm) {
+  games.forEach((game) => {
+    const gameTitle = game.title.toLowerCase();
+    const searchInput = searchTerm.toLowerCase();
+    if (gameTitle[0] === searchInput[0] && gameTitle.includes(searchInput)) {
+      console.log(game);
+    }
+  });
+}
