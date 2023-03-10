@@ -1,18 +1,22 @@
 import Example from "./scripts/example";
 import { useData } from "./scripts/api";
-import { handleMainPage } from "./scripts/mainPage";
+import { renderMainPage } from "./scripts/mainPage";
+import { renderNavbar } from "./scripts/components/navbar";
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Hello world!");
   //npm run watch to run webpack
-
-  //grab an html element for DOM manipulation
   const main = document.getElementById("main");
-  //   new Example(main);
+
+    renderNavbar()
 //  handleButtonClick(); can add all the eventlistner like this
   //need to make some html for navbar and search section so we can save it as variable to have handle events
 
-  useData().then((data)=>(console.log(data)))
+  useData().then((allData)=>{
+    renderMainPage(allData.allData)
+    console.log(allData.allData)
+  })
+
 });
 
 
