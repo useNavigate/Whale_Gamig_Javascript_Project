@@ -11,6 +11,8 @@ const options = {
 
 let allData = null;
 let gamesByGenre = null;
+let gamesByPlatform = null;
+let gamesByPublisher = null;
 
 export async function getAllData(url, options) {
   try {
@@ -29,13 +31,32 @@ export async function getAllData(url, options) {
       }
       gamesByGenre[genre].push(game);
     }
+
+
+    gamesByPlatform ={}
+     for (const game of allData) {
+       const platform = game.platform;
+       if (!gamesByPlatform[platform]) {
+         gamesByPlatform[platform] = [];
+       }
+       gamesByPlatform[platform].push(game);
+     }
+
+     gamesByPublisher={}
+       for (const game of allData) {
+         const publisher = game.publisher;
+         if (!gamesByPublisher[publisher]) {
+           gamesByPublisher[publisher] = [];
+         }
+         gamesByPublisher[publisher].push(game);
+       }
     /*
       this part is important because whole point of storing in to variable is to use it
       whenever i want to call it however, i might call the variable before it even get to store it
       so i need to make sure it returns it as variable but it still going to return 'promise' because it
       did not resolve yet it was undefined for LONG TIME LOL...
     */
-    return {allData, gamesByGenre}; // it actually needs to return the promise value that has these data i want
+    return {allData, gamesByGenre,gamesByPlatform,gamesByPublisher}; // it actually needs to return the promise value that has these data i want
   } catch (err) {
     console.error("error:" + err);
   }
@@ -50,15 +71,36 @@ export async function getAllData(url, options) {
   so its better to export this function that actually returns the data i need
 */
 export async function useData() {
-  if (!allData || !gamesByGenre) {
+  if (!allData || !gamesByGenre || !gamesByPlatform || !gamesByPublisher) {
     /* this is way to get out from call back hell and also we do not need to fetch EVERY SINGLE TIME*/
     await getAllData(games, options);
   }
   //save in array because i'd rather loop through array...
   // ok changing to object cuz actually i do forget which is which.. it is good to have key...
-  const data = {allData, gamesByGenre};
+  const data = {allData, gamesByGenre,gamesByPlatform,gamesByPublisher};
   return data;
 }
+
+
+
+
+/*re-fetch-able
+sort_by
+onclick => fetch
+let sort =['release-date', 'popularity', 'alphabetical']
+GET `https://www.mmobomb.com/api1/games?sort-by=${alphabetical}`
+
+ Return details from a specific game
+**once user click certain game then refetch
+onclick => fetch
+ GET https://www.mmobomb.com/api1/game?id=452
+
+
+ */
+
+
+
+
 
 // //data[0]=>all the data
 // //data[1]=> data saved by genre
