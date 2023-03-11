@@ -1,11 +1,11 @@
-
-
-export default function createChart(data) {
+ export default function createChart(data) {
   // Extract the release year from each game and create an array of objects
   const games = data
     .filter((d) => d.release_date !== "0000") // exclude games with release year of "0000"
     .map((d) => {
-      const year = Date.parse(d.release_date) ? parseInt(d.release_date.substring(0, 4)) : null;
+      const year = Date.parse(d.release_date)
+        ? new Date(d.release_date).getFullYear()
+        : null;
       return { release_year: year };
     });
 
@@ -22,7 +22,8 @@ export default function createChart(data) {
 
   // Create a line chart using D3
   const chart = LineChart(
-    Object.entries(totals).map(([year, count]) => ({ year, count })),
+    //converts the totals object into an array of key-value pairs
+    Object.entries(totals).map(([year, count]) => ({ year: new Date(year, 0), count })),
     {
       x: (d) => d.year,
       y: (d) => d.count,
@@ -31,6 +32,9 @@ export default function createChart(data) {
       width: 800,
       height: 400,
       color: "steelblue",
+      // specify the tick format for the x-axis
+
+      xAxisFormat: d3.timeFormat("%Y")
     }
   );
 
@@ -58,7 +62,7 @@ function LineChart(
     yRange = [height - marginBottom, marginTop], // [bottom, top]
     yFormat, // a format specifier string for the y-axis
     yLabel, // a label for the y-axis
-    xLabel,// adding becauses i want x label
+    xLabel, // adding becauses i want x label
     color = "currentColor", // stroke color of line
     strokeLinecap = "round", // stroke line cap of the line
     strokeLinejoin = "round", // stroke line join of the line
@@ -106,7 +110,7 @@ function LineChart(
     .attr("transform", `translate(0,${height - marginBottom})`)
     .call(xAxis);
 
-    //...also graph?
+  //...also graph?
   svg
     .append("g")
     .attr("transform", `translate(${marginLeft},0)`)
@@ -129,7 +133,7 @@ function LineChart(
         .text(yLabel)
     );
 
-    //graph
+  //graph
   svg
     .append("path")
     .attr("fill", "none")
@@ -140,13 +144,13 @@ function LineChart(
     .attr("stroke-opacity", strokeOpacity)
     .attr("d", line(I));
 
-    //label for x
-    svg
-      .append("text")
-      .attr("x", width - (marginLeft *17))
-      .attr("y", height - marginBottom /20)
-      .attr("fill", "currentColor")
-      .attr("text-anchor", "end")
-      .text(xLabel);
+  //label for x
+  svg
+    .append("text")
+    .attr("x", width - marginLeft * 17)
+    .attr("y", height - marginBottom / 20)
+    .attr("fill", "currentColor")
+    .attr("text-anchor", "end")
+    .text(xLabel);
   return svg.node();
 }
