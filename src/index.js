@@ -3,6 +3,7 @@ import { useData,getSortData } from "./scripts/api";
 import { renderSearchCards } from "./scripts/components/cards";
 import { renderNavbar } from "./scripts/components/navbar";
 import { renderSearchBar, handleSearch } from "./scripts/components/search";
+import createChart from "./scripts/components/lineChart";
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -15,13 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
  useData().then((allData)=>{
-  console.log(allData)
-   renderSearchCards(allData.allData);
+  //  renderSearchCards(allData.allData);
    handleSearch(allData.allData,main);
+  console.log(allData)
+  createChart(allData.allData)
   })
-
-
-console.log
 });
 
 
