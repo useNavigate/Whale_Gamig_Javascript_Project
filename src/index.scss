@@ -1,6 +1,92 @@
 @import "./styles/example.scss"; // DON'T FORGET TO ADD SEMI COLON
 // we have access to variable from example scss because we imported
 
-#main {
-    color:$color;
+* {
+    border: 1px black solid;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
 }
+
+.main_page_wrapper{
+    width:100%;
+    display:flex;
+    justify-content: center;
+}
+
+._page{
+    width:100%;
+    height:100vh;
+    overflow: hidden;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+._page button{
+    width:100px;
+}
+
+._page.data{
+    background-color: black;
+    color:white;
+}
+#navbar {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#menu {
+    display: flex;
+    width:100%;
+    justify-content: space-between;
+    padding:10px;
+}
+
+#menu li{
+    display:flex;
+    width:100%;
+    height:40px;
+    text-align: center ;
+    margin:auto;
+    justify-content: center;
+    align-items: center;
+}
+
+#search{
+    display:flex;
+   padding:0;
+   margin:0;
+}
+#search input{
+    width:300px;
+    height:25px;
+    border-radius: 60px;
+}
+
+// .domain {
+//     stroke: rgb(68, 0, 255);
+// }
+
+// text{
+//     color:rgb(27, 0, 101)
+// }
+
+// line{
+//     color:rgb(68, 0, 255);
+
+// }
+
+// path{
+//     background-color: black;
+// }
+// svg{
+//     background-color: rgb(45, 147, 162);
+//     border-radius: 5px;
+
+// }

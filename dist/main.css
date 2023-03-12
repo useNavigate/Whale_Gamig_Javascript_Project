@@ -1,3 +1,72 @@
-#main>h1{border:4px solid purple;padding:20px}#main{color:purple}
+/*!*************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
+  \*************************************************************************************************************************************/
+* {
+  border: 1px black solid;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+}
 
-/*# sourceMappingURL=main.css.map*/
+.main_page_wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+._page {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+._page button {
+  width: 100px;
+}
+
+._page.data {
+  background-color: black;
+  color: white;
+}
+
+#navbar {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+#menu {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+#menu li {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  text-align: center;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+#search {
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+#search input {
+  width: 300px;
+  height: 25px;
+  border-radius: 60px;
+}
