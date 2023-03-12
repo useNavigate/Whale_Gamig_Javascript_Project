@@ -1,10 +1,18 @@
 export const renderSearchBar = () => {
-  const navBar = document.getElementById("search");
-  navBar.innerHTML = `
-    <label>
+  const menu = document.getElementById("menu");
+  const search = document.createElement('li')
+  // search.classList.add('search')
+  search.setAttribute('id','search')
+  menu.appendChild(search)
+  search.innerHTML = `
+
+
   <input id ="searchInput" type="text">
-  </label>
+
+
     `;
+
+
 };
 
 export function handleSearch(games, main) {

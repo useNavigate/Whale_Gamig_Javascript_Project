@@ -2,10 +2,10 @@ export const renderNavbar = () => {
 
     const navBar = document.getElementById('menu')
     navBar.innerHTML = `
-    <a><h1>🐳WG</h1></a>
+    <li><h1>🐳</h1></li>
     <li>Games</li>
-    <li>News</li>
-    <li>Giveaways</li>
+    <li>Profile</li>
+    <li>Report</li>
     `;
 
 

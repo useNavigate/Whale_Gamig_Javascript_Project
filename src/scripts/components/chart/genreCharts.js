@@ -1,3 +1,4 @@
+
 export function dispatchGenre(genres) {
   let genreData = [];
 
@@ -43,6 +44,7 @@ export function createMultiChart(data) {
       {
         x: (d) => d.year,
         y: (d) => d.count,
+        z:(d)=>d.title,
         yLabel: "Number of games",
         xLabel: "Released Year",
         width: 600,
@@ -63,34 +65,36 @@ function LineChart(
   {
     x = ([x]) => x, // given d in data, returns the (temporal) x-value
     y = ([, y]) => y, // given d in data, returns the (quantitative) y-value
+    title, // given d in data, returns the title text
     defined, // for gaps in data
     curve = d3.curveLinear, // method of interpolation between points
-    marginTop = 30, // top margin, in pixels
+    marginTop = 20, // top margin, in pixels
     marginRight = 30, // right margin, in pixels
     marginBottom = 30, // bottom margin, in pixels
-    marginLeft = 30, // left margin, in pixels
-    width = 500, // outer width, in pixels
+    marginLeft = 40, // left margin, in pixels
+    width = 640, // outer width, in pixels
     height = 400, // outer height, in pixels
-    xType = d3.scaleUtc, // the x-scale type
+    xType = d3.scaleUtc, // type of x-scale
     xDomain, // [xmin, xmax]
     xRange = [marginLeft, width - marginRight], // [left, right]
-    yType = d3.scaleLinear, // the y-scale type
+    yType = d3.scaleLinear, // type of y-scale
     yDomain, // [ymin, ymax]
     yRange = [height - marginBottom, marginTop], // [bottom, top]
+    color = "currentColor", // stroke color of line
+    strokeWidth = 1.5, // stroke width of line, in pixels
+    strokeLinejoin = "round", // stroke line join of line
+    strokeLinecap = "round", // stroke line cap of line
     yFormat, // a format specifier string for the y-axis
     yLabel, // a label for the y-axis
-    xLabel, // adding becauses i want x label
-    color = "red", // stroke color of line
-    strokeLinecap = "round", // stroke line cap of the line
-    strokeLinejoin = "bevel", // stroke line join of the line
-    strokeWidth = 2, // stroke width of line, in pixels
-    strokeOpacity = 1, // stroke opacity of line
   } = {}
 ) {
   // Compute values.
   const X = d3.map(data, x);
   const Y = d3.map(data, y);
-  const I = d3.range(X.length);
+  const O = d3.map(data, (d) => d);
+  const I = d3.map(data, (_, i) => i);
+
+  // Compute which data points are considered defined.
   if (defined === undefined) defined = (d, i) => !isNaN(X[i]) && !isNaN(Y[i]);
   const D = d3.map(data, defined);
 
@@ -101,11 +105,26 @@ function LineChart(
   // Construct scales and axes.
   const xScale = xType(xDomain, xRange);
   const yScale = yType(yDomain, yRange);
-  const xAxis = d3
-    .axisBottom(xScale)
-    .ticks(width / 50) // x range
+  // const xAxis = d3
+  //   .axisBottom(xScale)
+  //   .ticks(width / 80)
+  //   .tickSizeOuter(0);
+  const xAxis=d3.axisBottom(xScale)
+    .ticks(width / 80)
+    .tickFormat(d3.timeFormat("%Y"))
     .tickSizeOuter(0);
-  const yAxis = d3.axisLeft(yScale).ticks(height / 50, yFormat); //y range
+  const yAxis = d3.axisLeft(yScale).ticks(height / 40, yFormat);
+
+  // Compute titles.
+  if (title === undefined) {
+    const formatDate = xScale.tickFormat(null, "%b %-d, %Y");
+    const formatValue = yScale.tickFormat(100, yFormat);
+    title = (i) => `${formatDate(X[i])}\n${formatValue(Y[i])}`;
+  } else {
+    const O = d3.map(data, (d) => d);
+    const T = title;
+    title = (i) => T(O[i], i, data);
+  }
 
   // Construct a line generator.
   const line = d3
@@ -120,15 +139,20 @@ function LineChart(
     .attr("width", width)
     .attr("height", height)
     .attr("viewBox", [0, 0, width, height])
-    .attr("style", "max-width: 100%; height: auto; height: intrinsic;");
+    .attr("style", "max-width: 100%; height: auto; height: intrinsic;")
+    .attr("font-family", "sans-serif")
+    .attr("font-size", 10)
+    .style("-webkit-tap-highlight-color", "transparent")
+    .style("overflow", "visible")
+    .on("pointerenter pointermove", pointermoved)
+    .on("pointerleave", pointerleft)
+    .on("touchstart", (event) => event.preventDefault());
 
-  //x Axis line
   svg
     .append("g")
     .attr("transform", `translate(0,${height - marginBottom})`)
     .call(xAxis);
 
-  // y Axis line
   svg
     .append("g")
     .attr("transform", `translate(${marginLeft},0)`)
@@ -146,31 +170,65 @@ function LineChart(
         .append("text")
         .attr("x", -marginLeft)
         .attr("y", 10)
-        .attr("fill", "red") //number of games text
+        .attr("fill", "currentColor")
         .attr("text-anchor", "start")
         .text(yLabel)
     );
 
-  //graph
   svg
     .append("path")
     .attr("fill", "none")
-    .attr("stroke", "pink") //graph stroke color
+    .attr("stroke", color)
     .attr("stroke-width", strokeWidth)
-    .attr("stroke-linecap", strokeLinecap)
     .attr("stroke-linejoin", strokeLinejoin)
-    .attr("stroke-opacity", strokeOpacity)
+    .attr("stroke-linecap", strokeLinecap)
     .attr("d", line(I));
 
-  //label for x
-  svg
-    .append("text")
-    .attr("x", width - marginRight * 10)
-    .attr("y", height - marginBottom / 20)
-    .attr("fill", "black") //release year
-    .attr("text-anchor", "end")
-    .text(xLabel);
-  return svg.node();
+  const tooltip = svg.append("g").style("pointer-events", "none");
+
+  function pointermoved(event) {
+    const i = d3.bisectCenter(X, xScale.invert(d3.pointer(event)[0]));
+    tooltip.style("display", null);
+    tooltip.attr("transform", `translate(${xScale(X[i])},${yScale(Y[i])})`);
+
+    const path = tooltip
+      .selectAll("path")
+      .data([,])
+      .join("path")
+      .attr("fill", "white")
+      .attr("stroke", "black");
+
+    const text = tooltip
+      .selectAll("text")
+      .data([,])
+      .join("text")
+      .call((text) =>
+        text
+          .selectAll("tspan")
+          .data(`${title(i)}`.split(/\n/))
+          .join("tspan")
+          .attr("x", 0)
+          .attr("y", (_, i) => `${i * 1.1}em`)
+          .attr("font-weight", (_, i) => (i ? null : "bold"))
+          .text((d) => d)
+      );
+
+    const { x, y, width: w, height: h } = text.node().getBBox();
+    text.attr("transform", `translate(${-w / 2},${15 - y})`);
+    path.attr(
+      "d",
+      `M${-w / 2 - 10},5H-5l5,-5l5,5H${w / 2 + 10}v${h + 20}h-${w + 20}z`
+    );
+    svg.property("value", O[i]).dispatch("input", { bubbles: true });
+  }
+
+  function pointerleft() {
+    tooltip.style("display", "none");
+    svg.node().value = null;
+    svg.dispatch("input", { bubbles: true });
+  }
+
+  return Object.assign(svg.node(), { value: null });
 }
 
 
