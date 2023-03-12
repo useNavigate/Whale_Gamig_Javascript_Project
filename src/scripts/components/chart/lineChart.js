@@ -1,9 +1,9 @@
- export default function createChart(data) {
+ export  function createChart(data) {
   // Extract the release year from each game and create an array of objects
   const games = data
     .filter((d) => d.release_date !== "0000") // exclude games with release year of "0000"
     .map((d) => {
-      const year = Date.parse(d.release_date)
+      const year = Date.parse(d.release_date) //if its not parsable that means its 0000 one
         ? new Date(d.release_date).getFullYear()
         : null;
       return { release_year: year };
@@ -22,23 +22,26 @@
 
   // Create a line chart using D3
   const chart = LineChart(
-    //converts the totals object into an array of key-value pairs
+    //converts the totals object into an array of key-value pairs because i fetched the api and response.json()
+    // needs to convert this because d3 only takes cvs data which is same as text/json
     Object.entries(totals).map(([year, count]) => ({ year: new Date(year, 0), count })),
     {
       x: (d) => d.year,
       y: (d) => d.count,
       yLabel: "Number of games",
       xLabel: "Released Year",
-      width: 800,
+      width: 400,
       height: 400,
-      color: "steelblue",
+      // color: "red", seems like this line can overwrites the colors
       // specify the tick format for the x-axis
-
       xAxisFormat: d3.timeFormat("%Y")
     }
   );
 
   // Append the chart to the DOM
+    let h1 = document.createElement("h1");
+    h1.innerHTML = `<h1>ALL GAMES</h1>`;
+    document.getElementById("main").appendChild(h1);
   document.getElementById("main").appendChild(chart);
 }
 function LineChart(
@@ -48,11 +51,11 @@ function LineChart(
     y = ([, y]) => y, // given d in data, returns the (quantitative) y-value
     defined, // for gaps in data
     curve = d3.curveLinear, // method of interpolation between points
-    marginTop = 20, // top margin, in pixels
+    marginTop = 30, // top margin, in pixels
     marginRight = 30, // right margin, in pixels
     marginBottom = 30, // bottom margin, in pixels
-    marginLeft = 40, // left margin, in pixels
-    width = 640, // outer width, in pixels
+    marginLeft = 30, // left margin, in pixels
+    width = 500, // outer width, in pixels
     height = 400, // outer height, in pixels
     xType = d3.scaleUtc, // the x-scale type
     xDomain, // [xmin, xmax]
@@ -63,10 +66,10 @@ function LineChart(
     yFormat, // a format specifier string for the y-axis
     yLabel, // a label for the y-axis
     xLabel, // adding becauses i want x label
-    color = "currentColor", // stroke color of line
+    color = "red", // stroke color of line
     strokeLinecap = "round", // stroke line cap of the line
-    strokeLinejoin = "round", // stroke line join of the line
-    strokeWidth = 1.5, // stroke width of line, in pixels
+    strokeLinejoin = "bevel", // stroke line join of the line
+    strokeWidth = 2, // stroke width of line, in pixels
     strokeOpacity = 1, // stroke opacity of line
   } = {}
 ) {
@@ -86,9 +89,9 @@ function LineChart(
   const yScale = yType(yDomain, yRange);
   const xAxis = d3
     .axisBottom(xScale)
-    .ticks(width / 80)
+    .ticks(width / 30) // x range
     .tickSizeOuter(0);
-  const yAxis = d3.axisLeft(yScale).ticks(height / 40, yFormat);
+  const yAxis = d3.axisLeft(yScale).ticks(height / 20, yFormat);//y range
 
   // Construct a line generator.
   const line = d3
@@ -105,12 +108,14 @@ function LineChart(
     .attr("viewBox", [0, 0, width, height])
     .attr("style", "max-width: 100%; height: auto; height: intrinsic;");
 
+    //x Axis line
   svg
     .append("g")
     .attr("transform", `translate(0,${height - marginBottom})`)
     .call(xAxis);
 
-  //...also graph?
+
+// y Axis line
   svg
     .append("g")
     .attr("transform", `translate(${marginLeft},0)`)
@@ -128,7 +133,7 @@ function LineChart(
         .append("text")
         .attr("x", -marginLeft)
         .attr("y", 10)
-        .attr("fill", "currentColor")
+        .attr("fill", "red") //number of games text
         .attr("text-anchor", "start")
         .text(yLabel)
     );
@@ -137,7 +142,7 @@ function LineChart(
   svg
     .append("path")
     .attr("fill", "none")
-    .attr("stroke", color)
+    .attr("stroke", "pink") //graph stroke color
     .attr("stroke-width", strokeWidth)
     .attr("stroke-linecap", strokeLinecap)
     .attr("stroke-linejoin", strokeLinejoin)
@@ -147,9 +152,9 @@ function LineChart(
   //label for x
   svg
     .append("text")
-    .attr("x", width - marginLeft * 17)
+    .attr("x", width - marginRight*10 )
     .attr("y", height - marginBottom / 20)
-    .attr("fill", "currentColor")
+    .attr("fill", "black") //release year
     .attr("text-anchor", "end")
     .text(xLabel);
   return svg.node();

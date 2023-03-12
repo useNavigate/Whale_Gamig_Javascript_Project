@@ -1,9 +1,11 @@
 
-import { useData,getSortData } from "./scripts/api";
+import { useData } from "./scripts/api";
 import { renderSearchCards } from "./scripts/components/cards";
 import { renderNavbar } from "./scripts/components/navbar";
 import { renderSearchBar, handleSearch } from "./scripts/components/search";
-import createChart from "./scripts/components/lineChart";
+import {createChart} from "./scripts/components/chart/lineChart";
+import { dispatchGenre,createMultiChart } from "./scripts/components/chart/genreCharts";
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -17,10 +19,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
  useData().then((allData)=>{
   //  renderSearchCards(allData.allData);
-   handleSearch(allData.allData,main);
-  console.log(allData)
-  createChart(allData.allData)
-  })
+   handleSearch(allData.allData, main);
+   console.log(allData.gamesByGenre)
+   createChart(allData.allData);
+  createMultiChart(dispatchGenre(allData.gamesByGenre));
+
+
+ })
 });
 
 
