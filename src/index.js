@@ -1,5 +1,5 @@
 import { useData } from "./scripts/api";
-import { renderNavbar,  } from "./scripts/components/navbar";
+import { renderNavbar, handleNavbarClick } from "./scripts/components/navbar";
 import { renderSearchBar, handleSearch } from "./scripts/components/search";
 import { renderMainPage } from "./scripts/components/mainPage";
 import { handlePage } from "./scripts/components/mainPage";
@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     handleSearch(allData.allData, main);
     handlePage(allData.allData)
     handleDataPage(allData.allData,allData.gamesByGenre)
+    handleNavbarClick(allData.allData,allData.gamesByGenre)
     console.log(allData.gamesByGenre);
     // createChart(allData.allData);
     // createMultiChart(dispatchGenre(allData.gamesByGenre));

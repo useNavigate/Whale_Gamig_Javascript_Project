@@ -12,6 +12,12 @@
 #main{
     padding-top: 50px;
 }
+
+#menu *:hover{
+    cursor:pointer;
+    background-color: black;
+    color:white;
+}
 .main_page_wrapper{
     width:100%;
     display:flex;
