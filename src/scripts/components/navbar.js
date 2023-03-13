@@ -30,13 +30,13 @@ export function handleNavbarClick(allData, data) {
     main.innerHTML=""
  allData.forEach((game) => {
    const card = document.createElement("div");
+   main.classList.add('card_page')
    card.innerHTML = `
-      <div class = "card">
+<div class="card" style="background-image: url('${game.thumbnail}'); background-size: cover;">
       <ul class="card_info">
-      <li><h1>${game.title}</h1></li>
-      <li>${game.genre}</li>
-      <li>${game.short_description}</li>
-      <li>${game.platform}<li>
+      <li><h1 id ="game_title">${game.title}</h1></li>
+      <li class="genre">${game.genre}</li>
+      <li class="description">${game.short_description}</li>
       </ul>
       </div>
       `;

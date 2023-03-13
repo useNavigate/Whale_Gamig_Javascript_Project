@@ -24,21 +24,24 @@ export const renderMainPage = () => {
 };
 
 export function handlePage(allData) {
+  console.log('handlepage')
+
   const main = document.querySelector("#main");
   const renderButton = document.querySelector("#game_button");
   renderButton.addEventListener("click", (event) => {
     event.preventDefault();
     console.log("button");
     main.innerHTML = "";
+    main.classList.add("card_page");
     allData.forEach((game) => {
+
       const card = document.createElement("div");
-      card.innerHTML = `
-      <div class = "card">
+         card.innerHTML = `
+<div class="card" style="background-image: url('${game.thumbnail}'); background-size: cover;">
       <ul class="card_info">
-      <li><h1>${game.title}</h1></li>
-      <li>${game.genre}</li>
-      <li>${game.short_description}</li>
-      <li>${game.platform}<li>
+      <li><h1 id ="game_title">${game.title}</h1></li>
+      <li class="genre">${game.genre}</li>
+      <li class="description">${game.short_description}</li>
       </ul>
       </div>
       `;

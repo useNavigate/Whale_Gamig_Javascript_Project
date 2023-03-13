@@ -29,6 +29,9 @@
 
 #main {
   margin-top: 46px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 #menu {
@@ -155,4 +158,63 @@
 
 #search input:focus {
   border-color: var(--600);
+}
+
+.card {
+  display: flex;
+  width: 300px;
+  height: 300px;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  box-shadow: 3px 8px 8px 0px rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.card_page {
+  background-color: var(--1000);
+}
+
+.card_info {
+  text-align: center;
+  font-family: "Lato", sans-serif;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  box-shadow: 3px 8px 8px 0px rgba(0, 0, 0, 0.7);
+}
+
+#game_title {
+  background: var(--hl);
+  border-radius: 5px;
+  color: var(--200);
+  font-weight: bolder;
+  margin: auto;
+}
+
+.card_info li {
+  font-weight: 700;
+}
+
+.description {
+  text-overflow: hidden;
+}
+
+.genre {
+  background-color: var(--1000);
+  color: white;
+  border-radius: 5px;
+  width: 100px;
+  padding-left: 3px;
+  padding-right: 3px;
+  margin-right: auto;
+  margin-left: auto;
 }

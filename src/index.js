@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     handlePage(allData.allData)
     handleDataPage(allData.allData,allData.gamesByGenre)
     handleNavbarClick(allData.allData,allData.gamesByGenre)
-    console.log(allData.gamesByGenre);
+    console.log(allData.allData[0].title);
     // createChart(allData.allData);
     // createMultiChart(dispatchGenre(allData.gamesByGenre));
   });

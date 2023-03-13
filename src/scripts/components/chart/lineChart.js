@@ -24,9 +24,10 @@ export function createChart(data) {
   const chart = LineChart(
     //converts the totals object into an array of key-value pairs because i fetched the api and response.json()
     // needs to convert this because d3 only takes cvs data which is same as text/json
-    Object.entries(totals).map(([year, count]) => ({
+    Object.entries(totals).map(([year, count,title]) => ({
       year: new Date(year, 0),
       count,
+      title,
     })),
     {
       x: (d) => d.year,

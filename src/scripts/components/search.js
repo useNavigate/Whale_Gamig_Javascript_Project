@@ -1,9 +1,9 @@
 export const renderSearchBar = () => {
   const menu = document.getElementById("menu");
-  const search = document.createElement('li')
+  const search = document.createElement("li");
   // search.classList.add('search')
-  search.setAttribute('id','search')
-  menu.appendChild(search)
+  search.setAttribute("id", "search");
+  menu.appendChild(search);
   search.innerHTML = `
 
 
@@ -12,8 +12,6 @@ export const renderSearchBar = () => {
 
 
     `;
-
-
 };
 
 export function handleSearch(games, main) {
@@ -35,21 +33,20 @@ function getSearchResult(games, searchTerm, main) {
     const searchInput = searchTerm.toLowerCase();
     if (gameTitle[0] === searchInput[0] && gameTitle.includes(searchInput)) {
       // console.log(game);
+      main.classList.remove("card_page")
       const card = document.createElement("div");
       card.innerHTML = `
-      <div class = "card">
-        <h1> result for ${searchTerm}
-        <ul class="card_info">
-          <li><h1>${game.title}</h1></li>
-          <li>${game.genre}</li>
-          <li>${game.short_description}</li>
-          <li>${game.platform}<li>
-          </ul>
+<div class="card" style="background-image: url('${game.thumbnail}'); background-size: cover;">
+      <ul class="card_info">
+      <li><h1 id ="game_title">${game.title}</h1></li>
+      <li class="genre">${game.genre}</li>
+      <li class="description">${game.short_description}</li>
+      </ul>
       </div>
       `;
       main.innerHTML = "";
       main.appendChild(card);
-     } //else{
+    } //else{
     //   main.innerHTML = "";
     //   main.innerHTML = "can't find it ";
     // }
