@@ -32,9 +32,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: var(--1000);
-  height: 100vh;
-  overflow-y: hidden;
 }
 
 #menu {
@@ -220,4 +217,44 @@
   padding-right: 3px;
   margin-right: auto;
   margin-left: auto;
+}
+
+#chart {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+#chart h1 {
+  color: var(--hl);
+}
+
+#chart_all {
+  padding: 15px;
+  margin: auto;
+}
+
+#chart_all h1 {
+  color: var(--hl);
+}
+
+#chart_all svg {
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  background-color: var(--200);
+  padding: 10px;
+  margin: 5px;
+  border-radius: 10px;
+}
+
+#chart svg {
+  width: 400px;
+  display: flex;
+  background-color: var(--300);
+  padding: 10px;
+  margin: 5px;
+  border-radius: 10px;
 }

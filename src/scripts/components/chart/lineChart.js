@@ -46,13 +46,15 @@ export function createChart(data) {
 
 
   // Append the chart to the DOM
-  const main = document.getElementById('#main')
+  const main = document.getElementById("#main");
 
   let h1 = document.createElement("h1");
   h1.innerHTML = `<h1>ALL GAMES</h1>`;
-
-  document.getElementById("main").appendChild(h1);
-  document.getElementById("main").appendChild(chart);
+  let div = document.createElement("div");
+  div.setAttribute("id", "chart_all");
+  div.appendChild(h1);
+  document.getElementById("main").appendChild(div);
+  document.getElementById("chart_all").appendChild(chart);
   // Copyright 2021 Observable, Inc.
   // Released under the ISC license.
   // https://observablehq.com/@d3/multi-line-chart
