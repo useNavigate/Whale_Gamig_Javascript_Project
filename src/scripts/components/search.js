@@ -31,7 +31,8 @@ function getSearchResult(games, searchTerm, main) {
   games.forEach((game) => {
     const gameTitle = game.title.toLowerCase();
     const searchInput = searchTerm.toLowerCase();
-    if (gameTitle[0] === searchInput[0] && gameTitle.includes(searchInput)) {
+    // if (gameTitle[0] === searchInput[0] && gameTitle.includes(searchInput)) {
+         if (gameTitle[0] === searchInput[0] && gameTitle.includes(searchInput)) {
       // console.log(game);
       main.classList.remove("card_page")
       const card = document.createElement("div");

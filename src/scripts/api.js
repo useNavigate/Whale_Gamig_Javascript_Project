@@ -56,7 +56,7 @@ export async function getAllData(url, options) {
 */
 export async function useData() {
 
-  if (!allData || !gamesByReleaseDate || !gamesByGenres) {
+  if (!allData || !gamesByReleaseDate || !gamesByGenre) {
     /* this is way to get out from call back hell and also we do not need to fetch EVERY SINGLE TIME*/
     await getAllData(games, options);
   }
