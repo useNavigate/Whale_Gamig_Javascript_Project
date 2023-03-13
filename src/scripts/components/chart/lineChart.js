@@ -63,6 +63,7 @@ export function createChart(data) {
   function LineChart(data, {
   x = ([x]) => x, // given d in data, returns the (temporal) x-value
   y = ([, y]) => y, // given d in data, returns the (quantitative) y-value
+  // z = ([z]) => z, this is not working
   title, // given d in data, returns the title text
   defined, // for gaps in data
   curve = d3.curveLinear, // method of interpolation between points
