@@ -1,8 +1,25 @@
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
+:root {
+  --1200: #0a1929;
+  --1100: #001e3c;
+  --1000: #132f4c;
+  --900: #173a5e;
+  --800: #1e4976;
+  --700: #265d97;
+  --600: #5090d3;
+  --500: #66b2ff;
+  --400: #91b9e3;
+  --300: #cee0f3;
+  --200: #e2edf8;
+  --100: #6f7e8c;
+  --hl:#007fff;
+  --divider: rgba(194, 224, 255, 0.08);
+  --contrast: rgba(0, 0, 0, 0.87);
+}
+
 * {
-  border: 1px black solid;
   padding: 0;
   margin: 0;
   list-style: none;
@@ -10,13 +27,20 @@
 }
 
 #main {
-  padding-top: 50px;
+  margin-top: 46px;
 }
 
-#menu *:hover {
+#menu {
+  background-color: var(--1200);
+  color: var(--200);
+}
+
+#menu #game_menu:hover,
+#menu #profile_menu:hover,
+#menu #stat_menu:hover {
+  background-color: var(--1000);
+  color: var(--600);
   cursor: pointer;
-  background-color: black;
-  color: white;
 }
 
 .main_page_wrapper {
@@ -33,6 +57,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: var(--900);
+  color: var(--500);
 }
 
 ._page button {
@@ -40,12 +66,11 @@
 }
 
 ._page.data {
-  background-color: black;
+  background-color: var(--1200);
   color: white;
 }
 
 #navbar {
-  background-color: white;
   position: fixed;
   top: 0;
   display: flex;
@@ -64,12 +89,13 @@
 
 #menu li {
   display: flex;
-  width: 100%;
+  width: 10rem;
   height: 40px;
   text-align: center;
   margin: auto;
   justify-content: center;
   align-items: center;
+  border-radius: 10px;
 }
 
 #search {
@@ -82,4 +108,13 @@
   width: 15rem;
   height: 25px;
   border-radius: 60px;
+  padding: 5px;
+  background-color: var(--1000);
+  color: white;
+  border: none;
+  outline: none;
+}
+
+#search input:focus {
+  border-color: var(--600);
 }
