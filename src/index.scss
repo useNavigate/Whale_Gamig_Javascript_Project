@@ -31,6 +31,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+background-color: var(--1000);
+height:100vh;
+overflow-y: hidden;
 }
 #menu {
   background-color: var(--1200);

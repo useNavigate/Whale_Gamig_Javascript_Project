@@ -50,6 +50,7 @@ export function createChart(data) {
 
   let h1 = document.createElement("h1");
   h1.innerHTML = `<h1>ALL GAMES</h1>`;
+
   document.getElementById("main").appendChild(h1);
   document.getElementById("main").appendChild(chart);
   // Copyright 2021 Observable, Inc.

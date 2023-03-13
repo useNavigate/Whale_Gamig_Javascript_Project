@@ -15,6 +15,7 @@ export function createMultiChart(data) {
   data.forEach((arr) => {
       let h1 = document.createElement("h1");
       h1.innerHTML = `<h1>${arr[0]}</h1>`;
+
       document.getElementById("main").appendChild(h1);
     const games = arr[1]
       .filter((d) => d.release_date !== "0000") // exclude games with release year of "0000"

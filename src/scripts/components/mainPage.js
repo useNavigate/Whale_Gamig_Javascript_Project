@@ -52,6 +52,8 @@ export function handlePage(allData) {
 
 export function handleDataPage(allData, data) {
   const dataButton = document.querySelector("#data_button");
+  const main = document.getElementById('main')
+   main.classList.remove("card_page");
   dataButton.addEventListener("click", (event) => {
     event.preventDefault();
     main.innerHTML = "";
