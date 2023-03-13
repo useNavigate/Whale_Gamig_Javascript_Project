@@ -14,7 +14,7 @@
   --300: #cee0f3;
   --200: #e2edf8;
   --100: #6f7e8c;
-  --hl:#007fff;
+  --hl: #007fff;
   --divider: rgba(194, 224, 255, 0.08);
   --contrast: rgba(0, 0, 0, 0.87);
 }
@@ -24,6 +24,7 @@
   margin: 0;
   list-style: none;
   text-decoration: none;
+  font-family: "Lato", sans-serif;
 }
 
 #main {
@@ -59,6 +60,14 @@
   align-items: center;
   background-color: var(--900);
   color: var(--500);
+  font-size: 1.8rem;
+  font-weight: bolder;
+}
+
+._page span {
+  color: white;
+  font-family: roboto;
+  font-weight: bolder;
 }
 
 ._page button {
@@ -67,7 +76,33 @@
 
 ._page.data {
   background-color: var(--1200);
+  color: var(--hl);
+  font-size: 1.8rem;
+  font-weight: bolder;
+}
+
+._page.data span {
   color: white;
+  font-family: roboto;
+  font-weight: bolder;
+}
+
+._page button {
+  border: none;
+  border-radius: 3px;
+  height: 30px;
+  margin-top: 2rem;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  color: white;
+  background-color: var(--hl);
+}
+
+._page button:hover {
+  cursor: pointer;
+}
+
+#data_button {
+  background-color: var(--700);
 }
 
 #navbar {
@@ -78,6 +113,8 @@
   height: 50px;
   align-items: flex-start;
   justify-content: center;
+  background-color: var(--1200);
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
 #menu {
@@ -90,12 +127,13 @@
 #menu li {
   display: flex;
   width: 10rem;
-  height: 40px;
+  height: 2.5rem;
   text-align: center;
   margin: auto;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
+  font-weight: bold;
 }
 
 #search {
@@ -105,10 +143,10 @@
 }
 
 #search input {
-  width: 15rem;
+  width: 300px !important;
   height: 25px;
   border-radius: 60px;
-  padding: 5px;
+  padding: 5px 20px;
   background-color: var(--1000);
   color: white;
   border: none;

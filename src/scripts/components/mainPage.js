@@ -6,11 +6,16 @@ export const renderMainPage = () => {
   main.innerHTML = `
  <div class="main_page_wrapper">
     <div class="_page">
-        <h1>Games</h1>
+        <h1>Level Up Your</h1>
+        <h1> <span>Gaming</span> Knowledge</h1>
+        <h1>Search, Discover and <span>Play</span></h1>
+
         <button id="game_button">Explore</button>
     </div>
     <div class="_page data">
-        <h1>Data visualzation</h1>
+        <h1>Get the <span>Edge</span></h1>
+        <h1>with Our Comprehensive</h1>
+        <h1> Gaming<span> Data</span> Analysis</h1>
         <button id="data_button">Explore</button>
     </div>
 </div>
@@ -40,17 +45,15 @@ export function handlePage(allData) {
       main.appendChild(card);
     });
   });
-
 }
 
-
-export function handleDataPage(allData,data){
-    const dataButton = document.querySelector("#data_button");
-    dataButton.addEventListener("click", (event) => {
-      event.preventDefault();
-      main.innerHTML = "";
-      console.log("databutton");
-      createChart(allData);
-      createMultiChart(dispatchGenre(data));
-    });
+export function handleDataPage(allData, data) {
+  const dataButton = document.querySelector("#data_button");
+  dataButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    main.innerHTML = "";
+    console.log("databutton");
+    createChart(allData);
+    createMultiChart(dispatchGenre(data));
+  });
 }
