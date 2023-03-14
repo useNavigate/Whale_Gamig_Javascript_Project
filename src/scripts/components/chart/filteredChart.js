@@ -69,7 +69,11 @@ prev.appendChild(chart)
 useData().then((allData)=>{
   handleFilter(allData.gamesByGenre);
 
+  //adding class for main
+  const main = document.getElementById("main")
+  main.classList.add("data")
 })
+
 
 
 const about = {
@@ -109,9 +113,30 @@ console.log(title)
 sideInfo.innerHTML=""
 sideInfo.innerHTML = `
 <div>
-  <h1>what is <span>${title}</span>?</h1>
+  <h1>what is <span>${title}</span> game?</h1>
   <p>${about[title.split(" ").join("")]}</p>
 </div>`;
+
+console.log(data);
+
+
+
+const about_ul = document.createElement("ul");
+const description_li = document.createElement("h4");
+description_li.innerHTML = `${title} Game Data Information List`;
+
+about_ul.appendChild(description_li);
+
+data.forEach((obj,i) => {
+  let about_li = document.createElement("li");
+  about_li.innerHTML = `${i+1} - ${obj.title} <br> Release Data - ${obj.release_date}
+  `;
+
+  about_ul.appendChild(about_li);
+});
+
+sideInfo.appendChild(about_ul);
+
   // Copyright 2021 Observable, Inc.
   // Released under the ISC license.
   // https://observablehq.com/@d3/multi-line-chart

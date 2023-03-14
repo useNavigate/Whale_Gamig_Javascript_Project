@@ -180,6 +180,10 @@
   background-color: var(--1000);
 }
 
+.card_page.data {
+  background-color: var(--200);
+}
+
 .card_info {
   text-align: center;
   font-family: "Lato", sans-serif;

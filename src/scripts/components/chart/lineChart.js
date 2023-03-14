@@ -1,6 +1,6 @@
 
 import { filteredChart } from "./filteredChart";
-
+import { useData } from "../../api";
 
 
 export function createChart(data,genre) {
@@ -32,12 +32,10 @@ export function createChart(data,genre) {
     Object.entries(totals).map(([year, count, title]) => ({
       year: new Date(year, 0),
       count,
-      title,
     })),
     {
       x: (d) => d.year,
       y: (d) => d.count,
-      z: (d) => d.title,
       yLabel: "Number of games",
       xLabel: "Released Year",
       width: 400,
@@ -50,6 +48,8 @@ export function createChart(data,genre) {
 
   // Append the chart to the DOM
 const main = document.getElementById('main')
+
+ main.classList.add("data");
   let h1 = document.createElement("h1");
   let mainChart = document.createElement("div");
 
@@ -80,6 +80,41 @@ about_p.innerHTML =
 main.appendChild(sideInfo)
 sideInfo.appendChild(about_p)
 
+// useData().then((data)=>{
+// console.log(data.gamesByGenre);
+// });
+
+const genreForFilter = [];
+
+
+Object.keys(genre).forEach((keys) => {
+  if (keys !== " MMORPG") {
+    genreForFilter.push(keys);
+  }
+});
+
+//get the percentage of each genre
+const genresFilter = genreForFilter.map((key) => {
+  return [key, genre[key].length];
+});
+
+console.log(genresFilter)
+
+const about_ul = document.createElement("ul")
+const description_li = document.createElement("h4")
+description_li.innerHTML=`Category - Total Amount of Games`
+
+about_ul.appendChild(description_li)
+
+
+genresFilter.forEach((arr,i)=>{
+  let about_li = document.createElement("li")
+  about_li.innerHTML=`${i+1} - ${arr[0]} : ${arr[1]}`
+
+  about_ul.appendChild(about_li)
+})
+
+sideInfo.appendChild(about_ul)
 
 handleFilter(genre)
   // Copyright 2021 Observable, Inc.
