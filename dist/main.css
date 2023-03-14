@@ -382,3 +382,42 @@ select {
 svg {
   margin-top: 2rem;
 }
+
+.d_main {
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+}
+
+.d_main * {
+  border: 1px solid black;
+}
+
+.d_pictures {
+  width: 400px;
+}
+
+.d_thumbnail {
+  background-position: center;
+  width: 400px;
+  height: 350px;
+}
+
+.d_screenshot {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.d_screenshot * {
+  width: 120px;
+}
+
+.d_details {
+  width: 500px;
+  height: 100%;
+}
