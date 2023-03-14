@@ -60,7 +60,61 @@ export function handleNavbarClick(allData, data) {
           .then((data) => {console.log(data)
             main.innerHTML=""
             const detail_section = document.createElement("div")
-            detail_section.innerHTML=`<h1>${data.title}</h1>`
+             detail_section.classList.add("d_main");
+            detail_section.innerHTML = `
+
+  <div class="d_pictures">
+    <div class="d_thumbnail"></div>
+    <div class="d_screenshot"></div>
+  </div>
+  <div class="d_details">
+    <div class="description">${data.description}</div>
+    <div class="d_information">
+      //flex wrap
+
+      <div class="d_sub">
+        <h4>title</h4>
+        <p>${data.title}</p>
+      </div>
+
+      <div class="d_sub">
+        <h4>release Date</h4>
+        <p>${data.release_date}</p>
+      </div>
+      <div class="d_sub">
+        <h4>Developer</h4>
+        <p>${data.developer}</p>
+      </div>
+      <div class="d_sub">
+        <h4>Genre</h4>
+        <p>${data.genre}</p>
+      </div>
+
+      <div class="d_sub">
+        <h4>publisher</h4>
+        <p>${data.publisher}</p>
+      </div>
+
+      <div class="d_sub">
+        <h4>platform</h4>
+        <p>${data.platform}</p>
+      </div>
+    </div>
+
+    <div class="d_system">
+      <ul>
+        <li><h1>graphics</h1> :${data.minimum_system_requirements.graphics}</li>
+        <li><h1>memory</h1>: ${data.minimum_system_requirements.memory}</li>
+        <li><h1>os</h1> :${data.minimum_system_requirements.os}</li>
+        <li><h1>processor</h1> ${data.minimum_system_requirements.processor}</li>
+      </ul>
+
+    </div>
+
+
+  </div>
+
+            `;
             main.appendChild(detail_section)
 
 

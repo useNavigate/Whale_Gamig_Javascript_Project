@@ -1,32 +1,52 @@
-<div id="main">
-  <div id="chart_all">
-    <div class="chrt_description">
-      <h1>Number of Games Released per Year</h1>
-      <p>
-        This graph displays the number of games released per year, with the
-        y-axis representing the total number of games and the x-axis
-        representing the year of release. The graph provides a visual
-        representation of the trend of game releases over time and can be used
-        to identify any patterns or changes in the industry.
-      </p>
+<div class="d_main">
+  <div class="d_pictures">
+    <div class="d_thumbnail"></div>
+    <div class="d_screenshot"></div>
+  </div>
+  <div class="d_details">
+    <div class="description">${data.description}</div>
+    <div class="d_information">
+      //flex wrap
+
+      <div class="d_sub">
+        <h4>title</h4>
+        <p>${title}</p>
+      </div>
+
+      <div class="d_sub">
+        <h4>release Date</h4>
+        <p>${release_date}</p>
+      </div>
+      <div class="d_sub">
+        <h4>Developer</h4>
+        <p>${release_date}</p>
+      </div>
+      <div class="d_sub">
+        <h4>Genre</h4>
+        <p>${genre}</p>
+      </div>
+
+      <div class="d_sub">
+        <h4>publisher</h4>
+        <p>${publisher}</p>
+      </div>
+
+      <div class="d_sub">
+        <h4>platform</h4>
+        <p>${platform}</p>
+      </div>
     </div>
-    <svg class="svg_allGame"></svg>
-  </div>
 
-  <!-- this is for specific category  -->
-  <div id="chart_sideInfo">
-    <!-- pie chart if i get a chance  -->
-    <h2>information</h2>
-    <ul>
-      <li>title:Lost Ark - released_year:2022</li>
-    </ul>
-  </div>
+    <div class="d_system">
+      <ul>
+        <li>graphics :${graphics}</li>
+        <li>memory: ${memory}</li>
+        <li>os ${os}</li>
+        <li>processor ${processor}</li>
+      </ul>
 
-  <!-- this is for allGame_chart -->
-  <div id="chart_sideInfo">
-    <select name="" id="">
-      <option disabled selected>MMORPG</option>
-      <option>title:Lost Ark - released_year:2022</option>
-    </select>
+    </div>
+
+
   </div>
 </div>
