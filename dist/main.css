@@ -256,6 +256,27 @@ ul.about_ul {
   margin-top: 2rem;
 }
 
+ul.about_ul li {
+  margin-top: 8px;
+}
+
+ul.about_ul li:nth-child(2n) {
+  background-color: rgba(255, 255, 255, 0.3);
+  color: var(--hl);
+}
+
+.list_header {
+  margin-bottom: 5px;
+  border-left: none;
+}
+
+.order {
+  font-weight: bold;
+  padding-left: 3px;
+  color: black;
+  border-left: 2px solid var(--hl);
+}
+
 .card:hover {
   cursor: pointer;
 }

@@ -135,7 +135,7 @@ about_ul.appendChild(description_li);
 
 data.forEach((obj,i) => {
   let about_li = document.createElement("li");
-  about_li.innerHTML = `${i+1} - ${obj.title} <br> Release Data - ${obj.release_date}
+  about_li.innerHTML = `<span class ="order">${i+1}</span> - ${obj.title} (${obj.release_date})
   `;
 
   about_ul.appendChild(about_li);

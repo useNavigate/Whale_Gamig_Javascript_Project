@@ -102,6 +102,7 @@ const genresFilter = genreForFilter.map((key) => {
 console.log(genresFilter)
 
 const about_ul = document.createElement("ul")
+about_ul.classList.add("about_ul")
 const description_li = document.createElement("h4")
 description_li.innerHTML=`Category - Total Amount of Games`
 
@@ -110,7 +111,7 @@ about_ul.appendChild(description_li)
 
 genresFilter.forEach((arr,i)=>{
   let about_li = document.createElement("li")
-  about_li.innerHTML=`${i+1} - ${arr[0]} : ${arr[1]}`
+  about_li.innerHTML=`<span class="order">${i+1}</span> - ${arr[0]} : ${arr[1]}`
 
   about_ul.appendChild(about_li)
 })
