@@ -40,18 +40,19 @@ export function handlePage(allData) {
       const card = document.createElement("div");
          card.innerHTML = `
 <div class="card" style="background-image: url('${game.thumbnail}'); background-size: cover;">
-      <ul id="${game.id}" class="card_info">
+      <ul  class="card_info">
       <li><h1 id ="game_title">${game.title}</h1></li>
       <li class="genre">${game.genre}</li>
       <li class="description">${game.short_description}</li>
+      <button id="${game.id}" class="more">Learn More</button>
       </ul>
       </div>
       `;
       main.appendChild(card);
 
 
- const theCardUl = document.getElementById(game.id);
- theCardUl.addEventListener("click", (event) => {
+ const button = document.getElementById(game.id);
+ button.addEventListener("click", (event) => {
    console.log(event.target.id);
  });
 
