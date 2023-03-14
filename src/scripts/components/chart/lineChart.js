@@ -73,10 +73,13 @@ const main = document.getElementById('main')
   //aside dom
 let sideInfo = document.createElement("div")
 sideInfo.classList.add("chart_sideInfo")
-sideInfo.innerHTML=`<h1>this should be side</h1>`
+ let about_p = document.createElement("p");
+sideInfo.innerHTML = `<h1>What is the future of the gaming industry?</h1>`;
+about_p.innerHTML =
+  "Gaming is now a bigger industry than movies and sports combined. Revenue for gaming reached $184 billion in 2022, and the number of gamers is expected to grow to 3.6 billion by 2025. It's not just kids either: 38 percent of gamers are between the ages of 18 and 34 years, and 16 percent are older than 55.";
 main.appendChild(sideInfo)
-// sideInfo.append(handleFilter())
-//filter
+sideInfo.appendChild(about_p)
+
 
 handleFilter(genre)
   // Copyright 2021 Observable, Inc.

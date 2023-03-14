@@ -53,7 +53,7 @@ let h1 = document.createElement("h1");
 
 
 
-  h1.innerHTML = `<h1>Number of ${title} The Live Games Released per Year</h1>`;
+  h1.innerHTML = `<h1>Number of The Live ${title} Games Released per Year</h1>`;
 
   let p = document.createElement("p");
   p.innerHTML = ` This graph displays the number of games released per year, with the
@@ -66,13 +66,52 @@ prev.appendChild(h1)
 prev.appendChild(p)
 prev.appendChild(chart)
 
-const sideInfo = document.querySelector(".chart_sideInfo");
-sideInfo.innerHTML=""
-sideInfo.innerHTML = `<h1>this should be side</h1>`;
 useData().then((allData)=>{
   handleFilter(allData.gamesByGenre);
 
 })
+
+
+const about = {
+  Shooter:
+    "Shooter video games or shooters are a subgenre of action video games where the focus is almost entirely on the defeat of the character's enemies using the weapons given to the player.",
+  MMORPG:
+    "(Massively Multiplayer Online Role-Playing Game) is a genre of online game that focuses more on traditional RPG elements, such as character development, questing, and story progression. Players typically create and control their own character in a persistent virtual world and interact with other players to complete quests, explore the world, and engage in player versus player combat. Examples of MMORPGs include World of Warcraft, Final Fantasy XIV, and Guild Wars 2.",
+  MMOARPG:
+    "(Massively Multiplayer Online Action Role-Playing Game) is a genre of online game that blends action-oriented gameplay with role-playing elements. Players typically control a single character in a virtual world and engage in real-time combat against enemies, completing quests, and gaining experience points to level up their characters. Examples of MMOARPGs include Diablo, Path of Exile, and Torchlight.",
+  ARPG: "(Action Role-Playing Game): A video game genre that combines elements of traditional role-playing games with real-time action combat. Players control a character in a fantasy world, battling enemies and gaining experience points to level up and acquire new skills and equipment. Example: Diablo series, Path of Exile.",
+  BattleRoyale:
+    "A genre of online multiplayer video games in which a large number of players (typically 100) fight to be the last person or team standing. Players start with minimal equipment and must scavenge for weapons and items while avoiding a constantly shrinking play area. Example: Fortnite, PUBG.",
+  Strategy:
+    "A video game genre that emphasizes tactical and strategic decision-making, resource management, and long-term planning. Players control armies or civilizations, build and manage infrastructure, and engage in combat against opponents. Example: Civilization series, Age of Empires.",
+  Fighting:
+    "A genre of video games in which players compete against each other in hand-to-hand combat using a variety of martial arts moves and special attacks. Example: Street Fighter, Mortal Kombat.",
+  CardGame:
+    "A genre of video games that involve collectible cards as the primary gameplay element. Players build decks of cards with different abilities and strengths, and then use them to battle against opponents. Example: Hearthstone, Magic: The Gathering Arena.",
+  ActionRPG:
+    "A genre of role-playing games that emphasizes real-time combat and fast-paced action. Players control a character in a fantasy world, battling enemies and gaining experience points to level up and acquire new skills and equipment. Example: Dark Souls, Kingdoms of Amalur.",
+  Racing:
+    "A video game genre that simulates racing vehicles, either on land, sea, or air. Players compete against each other or against the clock to complete courses or races, trying to get the fastest time or cross the finish line first. Example: Forza Horizon, Need for Speed.",
+  MOBA: "(Multiplayer Online Battle Arena): A genre of online multiplayer video games in which players control a single character in a team-based battle against opponents. The goal is to destroy the opposing team's base while protecting their own. Example: League of Legends, Dota 2.",
+  Sports:
+    "A video game genre that simulates real-world sports, such as soccer, football, basketball, or tennis. Players control individual athletes or teams, competing against each other to win matches or championships. Example: FIFA, NBA 2K.",
+  MMOFPS:
+    "(Massively Multiplayer Online First-Person Shooter): A genre of online multiplayer video games that involve shooting and combat from a first-person perspective in a persistent virtual world. Players engage in battles against other players or non-player characters to gain experience points and advance their characters. Example: Destiny, Warframe.",
+  MMO: "(Massively Multiplayer Online): A genre of online multiplayer video games that support a large number of players in a shared virtual world. Players can interact with each other and engage in various activities such as completing quests, exploring the world, or battling enemies. Example: World of Warcraft, Guild Wars 2.",
+  Social:
+    "A video game genre that emphasizes social interaction between players. Players can create and customize their avatars, chat with other players, participate in activities, and build relationships. Example: Second Life, The Sims.",
+  Fantasy:
+    "sA video game genre that features elements of mythology, magic, and fictional creatures. Players can explore and interact with a virtual world filled with fantastical locations and characters. Example: The Elder Scrolls series, Final Fantasy series.",
+};
+const sideInfo = document.querySelector(".chart_sideInfo");
+
+console.log(title)
+sideInfo.innerHTML=""
+sideInfo.innerHTML = `
+<div>
+  <h1>what is <span>${title}</span>?</h1>
+  <p>${about[title.split(" ").join("")]}</p>
+</div>`;
   // Copyright 2021 Observable, Inc.
   // Released under the ISC license.
   // https://observablehq.com/@d3/multi-line-chart
