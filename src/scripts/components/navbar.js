@@ -28,6 +28,7 @@ export function handleNavbarClick(allData, data) {
   gameMenu.addEventListener("click",event=>{
     event.preventDefault()
     main.innerHTML=""
+       main.classList.add("cards");
  allData.forEach((game) => {
    const card = document.createElement("div");
    main.classList.add('card_page')

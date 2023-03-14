@@ -48,6 +48,7 @@ export function handlePage(allData) {
       </div>
       `;
       main.appendChild(card);
+
     });
   });
 }
@@ -62,7 +63,7 @@ export function handleDataPage(allData, data) {
     ("databutton");
     // handleFilter(data)
     createChart(allData,data);
-
+ main.classList.add("card_page");
     // createMultiChart(dispatchGenre(data));
   });
 }

@@ -38,8 +38,9 @@ export function filteredChart(title,data) {
       z: (d) => d.title,
       yLabel: "Number of games",
       xLabel: "Released Year",
-      width: 400,
+      width: 700,
       height: 400,
+       color: "#007fff",
       // color: "red", seems like this line can overwrites the colors
       // specify the tick format for the x-axis
       xAxisFormat: d3.timeFormat("%Y"),
@@ -51,16 +52,20 @@ let prev = document.getElementById("chart_all")
 prev.innerHTML=""
 let h1 = document.createElement("h1");
 
+if(title === "Card Game"){
+  h1.innerHTML = `<h1>Number of The Live <span>Card</span> Games Released per Year</h1>`;
+}else{
+
+  h1.innerHTML = `<h1>Number of The Live <span>${title}</span> Games Released per Year</h1>`;
+}
 
 
-  h1.innerHTML = `<h1>Number of The Live ${title} Games Released per Year</h1>`;
-
-  let p = document.createElement("p");
-  p.innerHTML = ` This graph displays the number of games released per year, with the
+  let p = document.createElement("div");
+  p.innerHTML = ` <p>This graph displays the number of games released per year, with the
         y-axis representing the total number of games and the x-axis
         representing the year of release. The graph provides a visual
         representation of the trend of game releases over time and can be used
-        to identify any patterns or changes in the industry.`;
+        to identify any patterns or changes in the industry.</p>`;
 
 prev.appendChild(h1)
 prev.appendChild(p)
@@ -112,7 +117,7 @@ const sideInfo = document.querySelector(".chart_sideInfo");
 console.log(title)
 sideInfo.innerHTML=""
 sideInfo.innerHTML = `
-<div>
+<div >
   <h1>what is <span>${title}</span> game?</h1>
   <p>${about[title.split(" ").join("")]}</p>
 </div>`;
@@ -122,6 +127,7 @@ console.log(data);
 
 
 const about_ul = document.createElement("ul");
+about_ul.classList.add("about_ul")
 const description_li = document.createElement("h4");
 description_li.innerHTML = `${title} Game Data Information List`;
 
@@ -360,7 +366,7 @@ sideInfo.appendChild(about_ul);
      genreSelect.appendChild(genreList);
    });
 
-   const filtered = document.getElementById("Shooter");
+
    // (filtered)
    let selectedOption = "nocap";
 

@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   useData().then((allData) => {
     // handleFilter(allData.gamesByGenre)
+    console.log(allData.allData)
     handleSearch(allData.allData, main);
     handlePage(allData.allData,allData.gamesByGenre)
     handleDataPage(allData.allData,allData.gamesByGenre)

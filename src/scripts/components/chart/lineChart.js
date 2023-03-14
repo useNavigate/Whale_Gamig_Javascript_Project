@@ -38,9 +38,9 @@ export function createChart(data,genre) {
       y: (d) => d.count,
       yLabel: "Number of games",
       xLabel: "Released Year",
-      width: 400,
+      width: 700,
       height: 400,
-      // color: "red", seems like this line can overwrites the colors
+      color: "#007fff", //seems like this line can overwrites the colors
       // specify the tick format for the x-axis
       xAxisFormat: d3.timeFormat("%Y"),
     }
@@ -53,14 +53,14 @@ const main = document.getElementById('main')
   let h1 = document.createElement("h1");
   let mainChart = document.createElement("div");
 
-  h1.innerHTML = `<h1>Number of All The Live Games Released per Year</h1>`;
+  h1.innerHTML = `Number of <span>All</span> The Live Games Released per Year`;
 
-  let p = document.createElement("p");
-  p.innerHTML = ` This graph displays the number of games released per year, with the
+  let p = document.createElement("div");
+  p.innerHTML = `<p> This graph displays the number of games released per year, with the
         y-axis representing the total number of games and the x-axis
         representing the year of release. The graph provides a visual
         representation of the trend of game releases over time and can be used
-        to identify any patterns or changes in the industry.`;
+        to identify any patterns or changes in the industry.</p>`;
 
   mainChart.setAttribute("id", "chart_all");
 
@@ -73,16 +73,17 @@ const main = document.getElementById('main')
   //aside dom
 let sideInfo = document.createElement("div")
 sideInfo.classList.add("chart_sideInfo")
- let about_p = document.createElement("p");
-sideInfo.innerHTML = `<h1>What is the future of the gaming industry?</h1>`;
-about_p.innerHTML =
-  "Gaming is now a bigger industry than movies and sports combined. Revenue for gaming reached $184 billion in 2022, and the number of gamers is expected to grow to 3.6 billion by 2025. It's not just kids either: 38 percent of gamers are between the ages of 18 and 34 years, and 16 percent are older than 55.";
-main.appendChild(sideInfo)
-sideInfo.appendChild(about_p)
 
-// useData().then((data)=>{
-// console.log(data.gamesByGenre);
-// });
+sideInfo.innerHTML = "";
+sideInfo.innerHTML = `
+<div >
+  <h1>What is the <span>future</span> of the <span>gaming industry</span>??</h1>
+  <p>Gaming is now a bigger industry than movies and sports combined. Revenue for gaming reached $184 billion in 2022, and the number of gamers is expected to grow to 3.6 billion by 2025. It's not just kids either: 38 percent of gamers are between the ages of 18 and 34 years, and 16 percent are older than 55.</p>
+</div>`;
+
+
+ main.appendChild(sideInfo)
+
 
 const genreForFilter = [];
 
