@@ -408,15 +408,19 @@ svg{
 
 
 .d_main{
-background-color: white;
+// background-color: rgba(255, 255, 255, 0.301);
 width:100vw;
-height:100vh;
+min-height: 100vh;
+  height: 100%;
 display:flex;
 margin-top:50px;
-justify-content: center;
+justify-content: space-around;
+padding-left:4rem;
+padding-right: 4rem;
+color:white;
 }
 .d_main *{
-  border:1px solid black
+  // border:1px solid var(--500)
 }
 .d_pictures{
 width:400px;
@@ -427,17 +431,39 @@ width:400px;
   height:350px;
 }
 .d_screenshot{
+  border-bottom: 2px solid var(--500);
   display:flex;
   justify-content: space-between;
   padding-left:8px;
   padding-right:8px;
+  padding-bottom:8px;
 }
 .d_screenshot *{
-  width:120px;
+  width:150px;
+  box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.7);
 }
 
 .d_details{
+margin-top:31px;
   width:500px;
   height:100%;
 }
 
+.d_bar{
+  margin-top:2rem;
+  // border-left: 8px solid var(--hl);
+}
+
+.d_description{
+  margin-top: 1rem;
+  height:100%;
+  display:flex;
+  flex-direction: column;
+
+}
+.d_description p{
+  margin-bottom:0.5rem;
+}
+#play{
+// border-left: 8px solid var(--hl);
+}

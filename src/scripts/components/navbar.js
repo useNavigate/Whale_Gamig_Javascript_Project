@@ -61,21 +61,12 @@ export function handleNavbarClick(allData, data) {
             main.innerHTML=""
             const detail_section = document.createElement("div")
              detail_section.classList.add("d_main");
-             detail_section.innerHTML = `
+                     detail_section.innerHTML = `
 
   <div class="d_pictures">
   <h1>${data.title}</h1>
    <div class="d_thumbnail"  style="background-image: url('${data.thumbnail}'); background-size: cover;"></div>
-    <div class="d_screenshot">
-    <img src="${data.screenshots[0].image}" alt="${data.title} screenshot">
-     <img src="${data.screenshots[1].image}" alt="${data.title} screenshot">
-      <img src="${data.screenshots[2].image}" alt="${data.title} screenshot">
-    </div>
-  </div>
-  <div class="d_details">
-    <div class="d_description">${data.description}</div>
-    <div class="d_information">
-      //flex wrap
+      <div class="d_information">
 
       <div class="d_sub">
         <h4>title</h4>
@@ -105,6 +96,20 @@ export function handleNavbarClick(allData, data) {
         <p>${data.platform}</p>
       </div>
     </div>
+  </div>
+  <div class="d_details">
+      <div class="d_screenshot">
+
+    <img src="${data.screenshots[0].image}" alt="${data.title} screenshot">
+     <img src="${data.screenshots[1].image}" alt="${data.title} screenshot">
+      <img src="${data.screenshots[2].image}" alt="${data.title} screenshot">
+    </div>
+
+    <div class="d_bar">
+   <h1>Description</h1>
+   </div>
+    <div class="d_description">${data.description}   <a id="play" href=${data.game_url}>Play Now</a> </div>
+
 
 
   </div>
