@@ -57,7 +57,14 @@ export function handleNavbarClick(allData, data) {
           },
         })
           .then((res) => res.json())
-          .then((data) => console.log(data))
+          .then((data) => {console.log(data)
+            main.innerHTML=""
+            const detail_section = document.createElement("div")
+            detail_section.innerHTML=`<h1>${data.title}</h1>`
+            main.appendChild(detail_section)
+
+
+          })
           .catch((err) => console.error("error:" + err));
       });
 
