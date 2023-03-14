@@ -47,20 +47,23 @@ export function createChart(data,genre) {
   );
 
   // Append the chart to the DOM
-const main = document.getElementById('main')
+
+const MAIN = document.getElementById('main')
+const main =document.createElement('div')
+main.setAttribute('id','white_bg')
+MAIN.append(main)
 
  main.classList.add("data");
   let h1 = document.createElement("h1");
   let mainChart = document.createElement("div");
-
   h1.innerHTML = `Number of <span>All</span> The Live Games Released per Year`;
 
   let p = document.createElement("div");
   p.innerHTML = `<p> This graph displays the number of games released per year, with the
-        y-axis representing the total number of games and the x-axis
-        representing the year of release. The graph provides a visual
-        representation of the trend of game releases over time and can be used
-        to identify any patterns or changes in the industry.</p>`;
+  y-axis representing the total number of games and the x-axis
+  representing the year of release. The graph provides a visual
+  representation of the trend of game releases over time and can be used
+  to identify any patterns or changes in the industry.</p>`;
 
   mainChart.setAttribute("id", "chart_all");
 
@@ -68,24 +71,25 @@ const main = document.getElementById('main')
   mainChart.appendChild(h1);
   mainChart.appendChild(p);
   // description.appendChild(chartDiv);
-   mainChart.appendChild(chart);
+  mainChart.appendChild(chart);
 
   //aside dom
-let sideInfo = document.createElement("div")
-sideInfo.classList.add("chart_sideInfo")
+  let sideInfo = document.createElement("div")
+  sideInfo.classList.add("chart_sideInfo")
 
-sideInfo.innerHTML = "";
-sideInfo.innerHTML = `
-<div >
+  sideInfo.innerHTML = "";
+  sideInfo.innerHTML = `
+  <div >
   <h1>What is the <span>future</span> of the <span>gaming industry</span>??</h1>
   <p>Gaming is now a bigger industry than movies and sports combined. Revenue for gaming reached $184 billion in 2022, and the number of gamers is expected to grow to 3.6 billion by 2025. It's not just kids either: 38 percent of gamers are between the ages of 18 and 34 years, and 16 percent are older than 55.</p>
-</div>`;
+  </div>`;
 
 
- main.appendChild(sideInfo)
+  main.appendChild(mainChart)
+  main.appendChild(sideInfo)
 
 
-const genreForFilter = [];
+  const genreForFilter = [];
 
 
 Object.keys(genre).forEach((keys) => {

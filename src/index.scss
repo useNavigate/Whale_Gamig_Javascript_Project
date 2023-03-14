@@ -314,21 +314,20 @@ ul.about_ul li:nth-child(2n){
   background-color: var(--1000);
   height:100%
 }
-.card_page.data{
-  background-color: var(--200);
-  height:100%;
-}
+#white_bg{
+background-color: var(--200);
+width:100%;
+min-height: 100%vh;
+height:100%;
 
+  display: flex;
 
-// .data.cards.card_page{
-//   background-color: var(--1000)
-// }
-.data{
-  background-color: var(--200);
-}
-.data.card_page{
-  background-color: var(--200);
-  height:100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    align-items: center;
+
 }
 .card_info {
   text-align: center;
@@ -408,7 +407,7 @@ svg{
 
 
 .d_main{
-// background-color: rgba(255, 255, 255, 0.301);
+background-color: var(--1000);
 width:100vw;
 min-height: 100vh;
   height: 100%;
@@ -418,6 +417,7 @@ justify-content: space-around;
 padding-left:4rem;
 padding-right: 4rem;
 color:white;
+margin-bottom: 300px;
 }
 .d_main *{
   // border:1px solid var(--500)
@@ -425,10 +425,17 @@ color:white;
 .d_pictures{
 width:400px;
 }
+
+.d_pictures h1{
+  color:rgb(252, 189, 53);
+  font-size: 36px;
+  font-weight: bolder;
+}
 .d_thumbnail{
   background-position: center;
   width:400px;
   height:350px;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.7);
 }
 .d_screenshot{
   border-bottom: 2px solid var(--500);
@@ -465,5 +472,29 @@ margin-top:31px;
   margin-bottom:0.5rem;
 }
 #play{
-// border-left: 8px solid var(--hl);
+  color: inherit;
+color:rgb(252, 189, 53);
+text-decoration: none;
+}
+
+.d_sub{
+  background-color: rgba(0, 0, 0, 0.3);
+  padding:8px;
+  border-bottom-left-radius:8px;
+  border-bottom-right-radius: 8px;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.7);
+}
+.d_sub li{
+  margin-top: 10px;
+  margin-bottom:10px;
+}
+.d_sub li h4{
+  font-weight: bolder;
+  font-size:18px;
+  color:rgb(252, 189, 53);
+}
+.d_sub li:nth-child(2n){
+  background-color: rgba(0, 0, 0, 0.1);
+  padding-top:3px;
+  padding-bottom:3px;
 }

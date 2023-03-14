@@ -72,33 +72,20 @@ export function handlePage(allData) {
    <div class="d_thumbnail"  style="background-image: url('${data.thumbnail}'); background-size: cover;"></div>
       <div class="d_information">
 
-      <div class="d_sub">
-        <h4>title</h4>
-        <p>${data.title}</p>
-      </div>
-
-      <div class="d_sub">
-        <h4>release Date</h4>
-        <p>${data.release_date}</p>
-      </div>
-      <div class="d_sub">
-        <h4>Developer</h4>
-        <p>${data.developer}</p>
-      </div>
-      <div class="d_sub">
-        <h4>Genre</h4>
-        <p>${data.genre}</p>
-      </div>
-
-      <div class="d_sub">
-        <h4>publisher</h4>
-        <p>${data.publisher}</p>
-      </div>
-
-      <div class="d_sub">
-        <h4>platform</h4>
-        <p>${data.platform}</p>
-      </div>
+      <ul class="d_sub">
+        <li><h4>Title</h4></li>
+        <li>${data.title}</li>
+        <li><h4>Release Date</h4></li>
+        <li>${data.release_date}</li>
+        <li><h4>Developer</h4></li>
+        <li>${data.developer}</li>
+        <li><h4>Genre</h4></li>
+        <li>${data.genre}</li>
+        <li><h4>Publisher</h4></li>
+        <li>${data.publisher}</li>
+        <li><h4>Platform</h4></li>
+        <li>${data.platform}</li>
+      </ul>
     </div>
   </div>
   <div class="d_details">

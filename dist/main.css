@@ -293,18 +293,16 @@ ul.about_ul li:nth-child(2n) {
   height: 100%;
 }
 
-.card_page.data {
+#white_bg {
   background-color: var(--200);
+  width: 100%;
+  min-height: 100% vh;
   height: 100%;
-}
-
-.data {
-  background-color: var(--200);
-}
-
-.data.card_page {
-  background-color: var(--200);
-  height: 100%;
+  display: flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .card_info {
@@ -384,6 +382,7 @@ svg {
 }
 
 .d_main {
+  background-color: var(--1000);
   width: 100vw;
   min-height: 100vh;
   height: 100%;
@@ -393,16 +392,24 @@ svg {
   padding-left: 4rem;
   padding-right: 4rem;
   color: white;
+  margin-bottom: 300px;
 }
 
 .d_pictures {
   width: 400px;
 }
 
+.d_pictures h1 {
+  color: rgb(252, 189, 53);
+  font-size: 36px;
+  font-weight: bolder;
+}
+
 .d_thumbnail {
   background-position: center;
   width: 400px;
   height: 350px;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.7);
 }
 
 .d_screenshot {
@@ -438,4 +445,35 @@ svg {
 
 .d_description p {
   margin-bottom: 0.5rem;
+}
+
+#play {
+  color: inherit;
+  color: rgb(252, 189, 53);
+  text-decoration: none;
+}
+
+.d_sub {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.7);
+}
+
+.d_sub li {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.d_sub li h4 {
+  font-weight: bolder;
+  font-size: 18px;
+  color: rgb(252, 189, 53);
+}
+
+.d_sub li:nth-child(2n) {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
