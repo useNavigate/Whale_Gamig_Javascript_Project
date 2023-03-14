@@ -1,6 +1,4 @@
 import { createChart } from "./chart/lineChart";
-import { createMultiChart } from "./chart/genreCharts";
-import { dispatchGenre } from "./chart/genreCharts";
 
 export const renderNavbar = () => {
 
@@ -21,8 +19,10 @@ export function handleNavbarClick(allData, data) {
   statMenu.addEventListener("click", (event) => {
     event.preventDefault();
     main.innerHTML = "";
-    createChart(allData);
-    createMultiChart(dispatchGenre(data));
+    // handleFilter(data);
+    createChart(allData,data);
+
+    // createMultiChart(dispatchGenre(data));
   });
 
   gameMenu.addEventListener("click",event=>{

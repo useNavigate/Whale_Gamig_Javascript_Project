@@ -1,6 +1,8 @@
 import { createChart } from "./chart/lineChart";
-import { createMultiChart } from "./chart/genreCharts";
-import { dispatchGenre } from "./chart/genreCharts";
+
+
+
+
 export const renderMainPage = () => {
   const main = document.getElementById("main");
   main.innerHTML = `
@@ -24,13 +26,13 @@ export const renderMainPage = () => {
 };
 
 export function handlePage(allData) {
-  console.log('handlepage')
+  ('handlepage')
 
   const main = document.querySelector("#main");
   const renderButton = document.querySelector("#game_button");
   renderButton.addEventListener("click", (event) => {
     event.preventDefault();
-    console.log("button");
+    ("button");
     main.innerHTML = "";
     main.classList.add("card_page");
     allData.forEach((game) => {
@@ -57,8 +59,10 @@ export function handleDataPage(allData, data) {
   dataButton.addEventListener("click", (event) => {
     event.preventDefault();
     main.innerHTML = "";
-    console.log("databutton");
-    createChart(allData);
-    createMultiChart(dispatchGenre(data));
+    ("databutton");
+    // handleFilter(data)
+    createChart(allData,data);
+
+    // createMultiChart(dispatchGenre(data));
   });
 }

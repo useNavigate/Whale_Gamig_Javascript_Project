@@ -33,7 +33,7 @@ function getSearchResult(games, searchTerm, main) {
     const searchInput = searchTerm.toLowerCase();
     // if (gameTitle[0] === searchInput[0] && gameTitle.includes(searchInput)) {
          if (gameTitle[0] === searchInput[0] && gameTitle.includes(searchInput)) {
-      // console.log(game);
+      // (game);
       main.classList.remove("card_page")
       const card = document.createElement("div");
       card.innerHTML = `

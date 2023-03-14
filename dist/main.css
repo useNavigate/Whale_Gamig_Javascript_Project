@@ -273,3 +273,11 @@
 .disabled {
   display: none;
 }
+
+select {
+  margin-top: 20px;
+}
+
+.chart_description * {
+  border: 1px black solid;
+}

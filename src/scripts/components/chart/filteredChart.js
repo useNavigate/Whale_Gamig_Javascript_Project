@@ -1,9 +1,7 @@
-
-import { filteredChart } from "./filteredChart";
-
+import { useData } from "../../api";
 
 
-export function createChart(data,genre) {
+export function filteredChart(title,data) {
   // Extract the release year from each game and create an array of objects
   const games = data
     .filter((d) => d.release_date !== "0000") // exclude games with release year of "0000"
@@ -49,11 +47,13 @@ export function createChart(data,genre) {
   );
 
   // Append the chart to the DOM
-const main = document.getElementById('main')
-  let h1 = document.createElement("h1");
-  let mainChart = document.createElement("div");
+let prev = document.getElementById("chart_all")
+prev.innerHTML=""
+let h1 = document.createElement("h1");
 
-  h1.innerHTML = `<h1>Number of All The Live Games Released per Year</h1>`;
+
+
+  h1.innerHTML = `<h1>Number of ${title} The Live Games Released per Year</h1>`;
 
   let p = document.createElement("p");
   p.innerHTML = ` This graph displays the number of games released per year, with the
@@ -62,23 +62,17 @@ const main = document.getElementById('main')
         representation of the trend of game releases over time and can be used
         to identify any patterns or changes in the industry.`;
 
-  mainChart.setAttribute("id", "chart_all");
+prev.appendChild(h1)
+prev.appendChild(p)
+prev.appendChild(chart)
 
-  document.getElementById("main").appendChild(mainChart);
-  mainChart.appendChild(h1);
-  mainChart.appendChild(p);
-  // description.appendChild(chartDiv);
-   mainChart.appendChild(chart);
+const sideInfo = document.querySelector(".chart_sideInfo");
+sideInfo.innerHTML=""
+sideInfo.innerHTML = `<h1>this should be side</h1>`;
+useData().then((allData)=>{
+  handleFilter(allData.gamesByGenre);
 
-  //aside dom
-let sideInfo = document.createElement("div")
-sideInfo.classList.add("chart_sideInfo")
-sideInfo.innerHTML=`<h1>this should be side</h1>`
-main.appendChild(sideInfo)
-// sideInfo.append(handleFilter())
-//filter
-
-handleFilter(genre)
+})
   // Copyright 2021 Observable, Inc.
   // Released under the ISC license.
   // https://observablehq.com/@d3/multi-line-chart
@@ -257,67 +251,67 @@ handleFilter(genre)
 
 
 
+
  const handleFilter = (genres) => {
-  const main = document.querySelector("#main");
-  const genreSelect = document.createElement("select");
-  genreSelect.classList.add("genre_select");
+   const main = document.querySelector("#main");
+   const genreSelect = document.createElement("select");
+   genreSelect.classList.add("genre_select");
 
-  const sideInfo = document.querySelector(".chart_sideInfo");
-  sideInfo.appendChild(genreSelect);
+   const sideInfo = document.querySelector(".chart_sideInfo");
+   sideInfo.appendChild(genreSelect);
 
-  const selectOption = document.createElement("option");
-  selectOption.setAttribute("label", "Select Options");
-  selectOption.setAttribute("value", "nocap");
-  selectOption.selected = true;
-  selectOption.disabled = true;
-  genreSelect.appendChild(selectOption);
+   const selectOption = document.createElement("option");
+   selectOption.setAttribute("label", "Select Options");
+   selectOption.setAttribute("value", "nocap");
+   selectOption.selected = true;
+   selectOption.disabled = true;
+   genreSelect.appendChild(selectOption);
 
-  ("coming from linearChart");
-  //getting name of genres for filtering
-  const genreForFilter = [];
+   ("coming from linearChart");
+   //getting name of genres for filtering
+   const genreForFilter = [];
 
-  Object.keys(genres).forEach((keys) => {
-    if (keys !== " MMORPG") {
-      genreForFilter.push(keys);
-    }
-  });
+   Object.keys(genres).forEach((keys) => {
+     if (keys !== " MMORPG") {
+       genreForFilter.push(keys);
+     }
+   });
 
-  //get the percentage of each genre
-  const genresFilter = genreForFilter.map((key) => {
-    return [key, genres[key].length];
-  });
+   //get the percentage of each genre
+   const genresFilter = genreForFilter.map((key) => {
+     return [key, genres[key].length];
+   });
 
-  // (genresFilter);
+   // (genresFilter);
 
-  //assigning keys to ul
-  genresFilter.forEach((key, i) => {
-    const genreList = document.createElement("option");
-    genreList.setAttribute("value", `${key[0]}`);
-    genreList.setAttribute("id", `${key[0]}`);
-    (key[1]);
+   //assigning keys to ul
+   genresFilter.forEach((key, i) => {
+     const genreList = document.createElement("option");
+     genreList.setAttribute("value", `${key[0]}`);
+     genreList.setAttribute("id", `${key[0]}`);
+     (key[1]);
 
-    genreList.innerHTML = `${key[0]}`;
+     genreList.innerHTML = `${key[0]}`;
 
-    genreSelect.appendChild(genreList);
-  });
+     genreSelect.appendChild(genreList);
+   });
 
-  const filtered = document.getElementById("Shooter");
-  // (filtered)
-  let selectedOption = "nocap";
+   const filtered = document.getElementById("Shooter");
+   // (filtered)
+   let selectedOption = "nocap";
 
-  genreSelect.addEventListener("change", (event) => {
-    event.preventDefault();
-    if (event.target.value !== selectedOption) {
-      (event.target.value);
-      selectedOption = event.target.value;
-      //creatingChart
-      filteredChart(selectedOption, genres[selectedOption]);
-    }
+   genreSelect.addEventListener("change", (event) => {
+     event.preventDefault();
+     if (event.target.value !== selectedOption) {
+       (event.target.value);
+       selectedOption = event.target.value;
+       //creatingChart
+       filteredChart(selectedOption, genres[selectedOption]);
+     }
 
-    //omg finally got it
-    (genres[selectedOption]);
-  });
+     //omg finally got it
+     (genres[selectedOption]);
+   });
 
-  // return genres[selectedOption]
-};
-
+   // return genres[selectedOption]
+ };

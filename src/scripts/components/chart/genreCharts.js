@@ -3,11 +3,11 @@ export function dispatchGenre(genres) {
   let genreData = [];
 
   for (const key in genres) {
-    if (key !== " MMORPG") {
+    if (key !== " MMORPG" ) {
       genreData.push([[key], genres[key]]);
     }
   }
-  console.log(genreData)
+  (genreData)
   return genreData
 }
 
