@@ -28,7 +28,23 @@
 }
 
 body {
-  scrollbar-color: var(--hl);
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+body ::-webkit-scrollbar {
+  width: 10px;
+}
+body ::-webkit-scrollbar-track {
+  background: transparent;
+}
+body ::-webkit-scrollbar-thumb {
+  background: var(--hl);
+  border-radius: 10px;
+}
+body ::-webkit-scrollbar-thumb:hover {
+  background: var(--600);
 }
 
 section {
@@ -198,7 +214,7 @@ section {
 }
 
 #chart_all {
-  width: 700px;
+  width: 750px;
   padding: 15px;
   display: flex;
   flex-direction: column;
@@ -263,11 +279,6 @@ ul.about_ul li {
 ul.about_ul li:nth-child(2n) {
   background-color: rgba(255, 255, 255, 0.3);
   color: var(--hl);
-}
-
-.list_header {
-  margin-bottom: 5px;
-  border-left: none;
 }
 
 .order {

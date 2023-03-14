@@ -1,4 +1,5 @@
 const games = `https://mmo-games.p.rapidapi.com/games`;
+
 const options = {
   method: "GET",
   headers: {

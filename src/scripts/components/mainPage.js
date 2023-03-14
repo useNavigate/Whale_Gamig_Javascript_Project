@@ -40,7 +40,7 @@ export function handlePage(allData) {
       const card = document.createElement("div");
          card.innerHTML = `
 <div class="card" style="background-image: url('${game.thumbnail}'); background-size: cover;">
-      <ul class="card_info">
+      <ul id="${game.id}" class="card_info">
       <li><h1 id ="game_title">${game.title}</h1></li>
       <li class="genre">${game.genre}</li>
       <li class="description">${game.short_description}</li>
@@ -49,8 +49,18 @@ export function handlePage(allData) {
       `;
       main.appendChild(card);
 
+
+ const theCardUl = document.getElementById(game.id);
+ theCardUl.addEventListener("click", (event) => {
+   console.log(event.target.id);
+ });
+
+
+
     });
   });
+
+
 }
 
 export function handleDataPage(allData, data) {
