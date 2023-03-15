@@ -67,7 +67,7 @@ export function handlePage(allData) {
             main.innerHTML = "";
             const detail_section = document.createElement("div");
             detail_section.classList.add("d_main")
-
+      main.style.backgroundColor = "#132f4c";
              detail_section.innerHTML = `
 
   <div class="d_pictures">
