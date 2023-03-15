@@ -50,6 +50,7 @@ export function handleNavbarClick(allData, data) {
 scrollToTop();
       const button = document.getElementById(game.id);
       button.addEventListener("click", (event) => {
+
         console.log(event.target.id);
         /// now it needs to fetch the data based on the id
         fetch(`https://mmo-games.p.rapidapi.com/game?id=${event.target.id}`, {
@@ -65,6 +66,7 @@ scrollToTop();
             main.innerHTML=""
             const detail_section = document.createElement("div")
              detail_section.classList.add("d_main");
+               main.style.backgroundColor = "#132f4c";
    detail_section.innerHTML = `
 
   <div class="d_pictures">
