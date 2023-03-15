@@ -5,35 +5,38 @@ Javascript  Project based on live game API
 
 
 ## Background
-> Hi gamers!🎮🕹 Are you always busy grinding but still looking for new games to keep up your stimulation? Here's a perfect website for you! This website is built with pure `vanilla Javascript` and the `d3.js library`, using the `mmobomb-api` (https://www.mmobomb.com/api). It comes with great styling and a `pie chart filter` that shows game categories visualization, displaying your interested games with cool `cards` and `details`. so why don't we check this out? 🐋.
+> Welcome to `Whale Gaming`, a gaming website that offers information and data visualization based on the MMOBomb API. Our website aims to provide a user-friendly and informative platform for gamers and enthusiasts to explore and discover games based on different categories and genres.🐋.
 
 
 
 
 
 ## Functionality & MVPs
-> In  `Whale Gaming` , users will be able to:
-> - Pie Chart Filter
->   - user can filter out games based on categories. it will render all the games based on the picked category
-> - Cards
->   - It will render all the pieces of information in these cool cards that come with great styling 😎
->     - details
->     - screenshots
-> - likes❤😘
->   - Users can store liked games and never have to re-search for them!
->     - it will be stored in local storage
+ In  `Whale Gaming` , users will be able to:
+> - View data visualization
+>   - Whale Gaming provides a visually appealing and interactive way of exploring the number of games released per year based on categories
+
+> - Use the search functionality
+>   -  Users can search for their favorite games using our search bar
+
+> - View game details
+>   - Users can click on a game card to view its details such as description, gameplay, and more. This helps users to get a better understanding of the game before deciding to play or purchase it
 
 ## Wireframes
-> ### Card Component
->![image](https://user-images.githubusercontent.com/106133580/224136625-9cbeb8cd-bcde-4784-8791-ce2070cdffec.png)
+ ### Main Page
+> ![image](https://user-images.githubusercontent.com/106133580/225347911-77703b4a-d1fd-41ae-a4db-2c4b4bc72d1b.png)
 
 
-> ### Detail Section
-> ![image](https://user-images.githubusercontent.com/106133580/224136720-4d97aed7-9ac3-4249-a992-5f51512220e6.png)
+ ### Cards for Quick Views
+> ![image](https://user-images.githubusercontent.com/106133580/225348069-9148d092-97c0-4077-812d-70c7c2775246.png)
 
 
-> ### Data Visualzation Filter
-> ![image](https://user-images.githubusercontent.com/106133580/224136804-3e38090a-e7f0-4017-809f-e29bfe7ac08f.png)
+ ### Detail Sections
+> ![image](https://user-images.githubusercontent.com/106133580/225348352-847bfc8f-ad42-49b6-b286-47e34cfa10e3.png)
+
+
+ ### Data Visualzation
+> ![image](https://user-images.githubusercontent.com/106133580/225348426-4131a92e-1a79-4242-b7ca-8e5e581ae2d5.png)
 
 
 
@@ -44,28 +47,43 @@ Javascript  Project based on live game API
 > - `d3.js` (https://d3js.org/)
 
 
+
 ## Implementation Timeline
-> ### Friday
+ ### Friday
 > - fetch all the API data
-> - store in local storage
+>   - store as a variable to reduce amount of unnecessary fetch calls
 > - render basic html
+>   - navbar / main page
 
-> ### Saturday
-> - work on d3 pie graph
-> - interaction with the pie graph
+ ### Saturday
+> - Construct Data
+>   - restructure the fetched data into a suitable format for data visualization, which enable accurate representation of trends and patterns in the gaming industry
+> - Learn about d3 line graph
+> - Parse data to csv
 
-> ### Sunday
-> - component functionality
+ ### Sunday
+> - Render basic d3 line graph
+> - Add tool tip for the graph
 
-> ### Monday
-> - CSS for components part 1
+ ### Monday
+> - DOM
+>   - Added featured functionality eventlistners for
+>      - Click ( navbar / main page / cards / filter)
+>   - Input (search)
+>      - improved the search functionality by implementing a delay in fetching results. the API won't be called immediately when the user types in the search bar, but rather after a brief pause in typing to reduce unnecessary API calls.
 
-> ### Tuesday
-> - CSS for components part 2
->   - animation
+ ### Tuesday
+> - Added favicon
+> - CSS for Styling
+> - linkes all the component by reconstructing DOM
+> - Fixed minor bugs
 
 
-> ### Wednesday
-> - testing
+ ### Wednesday
+> - Testing
 >   - finalize the website
+> - Update README.md
+> - Practice for the presentation
+> - Added github link
+
 
