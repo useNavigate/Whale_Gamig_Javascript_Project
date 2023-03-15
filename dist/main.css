@@ -212,6 +212,11 @@ section {
   font-size: 10px;
 }
 
+#submenu li:hover {
+  cursor: pointer;
+  color: rgb(252, 189, 53);
+}
+
 .card {
   display: flex;
   position: relative;
