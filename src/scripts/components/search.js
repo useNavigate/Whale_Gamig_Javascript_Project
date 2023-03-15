@@ -26,9 +26,11 @@ export function handleSearch(games, main) {
       getSearchResult(games, searchTerm, main);
     } else if (searchTerm === "") {
       main.innerHTML = "";
+      main.style.backgroundColor = "#132f4c";
       main.innerHTML = `<h1 style="color:white;">Please Type Something to Search!</h1>`;
     } else if (searchTerm.length < 3) {
       main.innerHTML = "";
+      main.style.backgroundColor = "#132f4c";
       main.innerHTML = `<h1 style="color:white;">Search Keywords Need To Be Longer Than 3 Characters</h1>`;
     } else {
       main.style.backgroundColor = "#132f4c";
