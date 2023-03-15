@@ -1,5 +1,5 @@
 # 🐳Whale Gaming Javascript Project
-Javascript  Project based on live game API
+Javascript  Project based on live game API 🎮
 
 
 
@@ -27,15 +27,15 @@ Javascript  Project based on live game API
 > ![image](https://user-images.githubusercontent.com/106133580/225347911-77703b4a-d1fd-41ae-a4db-2c4b4bc72d1b.png)
 
 
- ### Cards for Quick Views 
+ ### Cards for Quick Views
 > ![image](https://user-images.githubusercontent.com/106133580/225348069-9148d092-97c0-4077-812d-70c7c2775246.png)
 
 
- ### Detail Sections 
+ ### Detail Sections
 > ![image](https://user-images.githubusercontent.com/106133580/225348352-847bfc8f-ad42-49b6-b286-47e34cfa10e3.png)
 
 
- ### Data Visualzation 
+ ### Data Visualzation
 > ![image](https://user-images.githubusercontent.com/106133580/225348426-4131a92e-1a79-4242-b7ca-8e5e581ae2d5.png)
 
 
@@ -58,19 +58,19 @@ Javascript  Project based on live game API
  ### Saturday
 > - Construct Data
 >   - restructure the fetched data into a suitable format for data visualization, which enable accurate representation of trends and patterns in the gaming industry
-> - Learn about d3 line graph 
+> - Learn about d3 line graph
 > - Parse data to csv
 
  ### Sunday
 > - Render basic d3 line graph
-> - Add tool tip for the graph 
+> - Add tool tip for the graph
 
  ### Monday
 > - DOM
->   - Added featured functionality eventlistners for 
+>   - Added featured functionality eventlistners for
 >      - Click ( navbar / main page / cards / filter)
 >   - Input (search)
->      - improved the search functionality by implementing a delay in fetching results. the API won't be called immediately when the user types in the search bar, but rather after a brief pause in typing to reduce unnecessary API calls.  
+>      - improved the search functionality by implementing a delay in fetching results. the API won't be called immediately when the user types in the search bar, but rather after a brief pause in typing to reduce unnecessary API calls.
 
  ### Tuesday
 > - Added favicon
@@ -82,8 +82,8 @@ Javascript  Project based on live game API
  ### Wednesday
 > - Testing
 >   - finalize the website
-> - Update README.md 
-> - Practice for the presentation 
+> - Update README.md
+> - Practice for the presentation
 > - Added github link
 
 
