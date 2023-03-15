@@ -22,6 +22,7 @@ export const renderMainPage = () => {
 </div>
 
     `;
+    scrollToTop()
 };
 
 export function handlePage(allData) {
@@ -48,7 +49,7 @@ export function handlePage(allData) {
       </div>
       `;
       main.appendChild(card);
-
+      scrollToTop()
       const button = document.getElementById(game.id);
       button.addEventListener("click", (event) => {
         console.log(event.target.id);
