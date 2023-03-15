@@ -65,17 +65,19 @@ Javascript  Project based on live game API
 
 > ### Monday
 > - DOM
->  - added featured functionality eventlistners for 
+>  - Added featured functionality eventlistners for 
 >   - Click ( navbar / main page / filter)
->   - input (search)
+>   - Input (search)
 >    - improvised search functions so that it wont fetch right away when input value changes   
 
 > ### Tuesday
+> - Added favicon
 > - CSS for Styling
-> - fixed minor bugs
+> - Fixed minor bugs
 
 
 > ### Wednesday
-> - testing
+> - Testing
 >   - finalize the website
+
 
