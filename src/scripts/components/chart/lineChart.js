@@ -1,6 +1,7 @@
 
+import { scrollToTop } from "../navbar";
 import { filteredChart } from "./filteredChart";
-import { useData } from "../../api";
+
 
 
 export function createChart(data,genre) {
@@ -49,6 +50,7 @@ export function createChart(data,genre) {
   // Append the chart to the DOM
 
 const MAIN = document.getElementById('main')
+MAIN.style.backgroundColor = "#e2edf8";
 const main =document.createElement('div')
 main.setAttribute('id','white_bg')
 MAIN.append(main)
@@ -87,7 +89,7 @@ MAIN.append(main)
 
   main.appendChild(mainChart)
   main.appendChild(sideInfo)
-
+scrollToTop();
 
   const genreForFilter = [];
 

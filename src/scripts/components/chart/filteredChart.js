@@ -1,4 +1,5 @@
 import { useData } from "../../api";
+import { scrollToTop } from "../navbar";
 
 
 export function filteredChart(title,data) {
@@ -142,6 +143,7 @@ data.forEach((obj,i) => {
 });
 
 sideInfo.appendChild(about_ul);
+scrollToTop()
 
   // Copyright 2021 Observable, Inc.
   // Released under the ISC license.

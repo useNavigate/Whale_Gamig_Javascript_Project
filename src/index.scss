@@ -50,7 +50,7 @@ body{
 }
 
 section{
-  background-color: var(--800);
+  background-color: var(--1200);
   box-shadow: inset 0 0 10px #000000;
 }
 #main {
@@ -61,8 +61,8 @@ section{
   justify-content: center;
   min-height: 100vh;
   height:100%;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  // padding-left: 2rem;
+  // padding-right: 2rem;
   align-items: center;
 }
 #menu {
@@ -145,6 +145,7 @@ section{
   justify-content: center;
   background-color: var(--1200);
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  z-index: 99;
 }
 
 #menu {
@@ -188,7 +189,7 @@ section{
 
 .card {
   display: flex;
-
+  position:relative;
   width: 300px;
   height: 300px;
   margin-top: 20px;
@@ -310,39 +311,44 @@ ul.about_ul li:nth-child(2n){
 // .card:hover{
 // cursor:pointer;
 // }
-.card_page {
-  background-color: var(--1000);
-  height:100%
-}
+// .card_page {
+//   background-color: var(--1000);
+//   height:100%
+// }
 #white_bg{
 background-color: var(--200);
 width:100%;
 min-height: 100%vh;
 height:100%;
-
+margin:auto;
   display: flex;
-
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
     align-items: center;
+
 
 }
 .card_info {
   text-align: center;
   font-family: "Lato", sans-serif;
-  padding: 10px;
-  border-radius: 10px;
+  border-top-right-radius: 10px;
+  border-top-left-radius:10px;
+  width:320px;
   background-color: rgba(255, 255, 255, 0.7);
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-    box-shadow: 3px 8px 8px 0px rgba(0, 0, 0, 0.7);
+  box-shadow: 3px 8px 8px 0px rgba(0, 0, 0, 0.7);
+  position:absolute;
+  left:0;
+    bottom:0;
+    height:150px;
 }
 #game_title{
     background: var(--hl);
-    border-radius: 5px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
     color:var(--200);
     font-weight: bolder;
     margin:auto;
@@ -370,10 +376,10 @@ height:100%;
   background-color:rgba(5, 105, 255,0.7);
 }
 
-.description{
-height: 250px;
-        text-overflow: hidden
-}
+// li.description{
+// height: 80px;
+// overflow: hidden;
+// }
 .genre{
     background-color: var(--1000);
     color:white;
@@ -430,6 +436,7 @@ width:400px;
   color:rgb(252, 189, 53);
   font-size: 36px;
   font-weight: bolder;
+  margin-bottom: 1.5rem;
 }
 .d_thumbnail{
   background-position: center;
@@ -438,12 +445,12 @@ width:400px;
   box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.7);
 }
 .d_screenshot{
-  border-bottom: 2px solid var(--500);
+  border-bottom: 2px solid rgb(252, 189, 53);
   display:flex;
   justify-content: space-between;
   padding-left:8px;
   padding-right:8px;
-  padding-bottom:8px;
+  padding-bottom:1.8rem;
 }
 .d_screenshot *{
   width:150px;
@@ -456,9 +463,9 @@ margin-top:31px;
   height:100%;
 }
 
-.d_bar{
+.d_bar h1{
   margin-top:2rem;
-  // border-left: 8px solid var(--hl);
+color: rgb(252, 189, 53);
 }
 
 .d_description{

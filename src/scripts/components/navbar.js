@@ -1,5 +1,7 @@
 import { createChart } from "./chart/lineChart";
-
+export function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
 export const renderNavbar = () => {
 
     const navBar = document.getElementById('menu')
@@ -18,6 +20,7 @@ export function handleNavbarClick(allData, data) {
   const statMenu = document.querySelector("#stat_menu")
   statMenu.addEventListener("click", (event) => {
     event.preventDefault();
+
     main.innerHTML = "";
     // handleFilter(data);
     createChart(allData,data);
@@ -27,6 +30,7 @@ export function handleNavbarClick(allData, data) {
 
   gameMenu.addEventListener("click",event=>{
     event.preventDefault()
+        main.style.backgroundColor = "#0a1929";
     main.innerHTML=""
        main.classList.add("cards");
  allData.forEach((game) => {
@@ -37,13 +41,13 @@ export function handleNavbarClick(allData, data) {
       <ul  class="card_info">
       <li><h1 id ="game_title">${game.title}</h1></li>
       <li class="genre">${game.genre}</li>
-      <li class="description">${game.short_description}</li>
+
       <button id="${game.id}" class="more">Learn More</button>
       </ul>
       </div>
       `;
   main.appendChild(card);
-
+scrollToTop();
       const button = document.getElementById(game.id);
       button.addEventListener("click", (event) => {
         console.log(event.target.id);
@@ -103,7 +107,7 @@ export function handleNavbarClick(allData, data) {
 
             `;
             main.appendChild(detail_section)
-
+            scrollToTop()
 
           })
           .catch((err) => console.error("error:" + err));

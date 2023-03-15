@@ -1,5 +1,7 @@
 import { createChart } from "./chart/lineChart";
-
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
 export const renderMainPage = () => {
   const main = document.getElementById("main");
   main.innerHTML = `
@@ -31,6 +33,7 @@ export function handlePage(allData) {
     event.preventDefault();
     ("button");
     main.innerHTML = "";
+        main.style.backgroundColor = "#0a1929";
     main.classList.add("card_page");
     allData.forEach((game) => {
       const card = document.createElement("div");
@@ -39,7 +42,7 @@ export function handlePage(allData) {
       <ul  class="card_info">
       <li><h1 id ="game_title">${game.title}</h1></li>
       <li class="genre">${game.genre}</li>
-      <li class="description">${game.short_description}</li>
+
       <button id="${game.id}" class="more">Learn More</button>
       </ul>
       </div>
@@ -107,6 +110,7 @@ export function handlePage(allData) {
 
             `;
             main.appendChild(detail_section);
+            scrollToTop()
           })
           .catch((err) => console.error("error:" + err));
       });
