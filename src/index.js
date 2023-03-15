@@ -4,6 +4,7 @@ import { renderSearchBar, handleSearch } from "./scripts/components/search";
 import { renderMainPage } from "./scripts/components/mainPage";
 import { handlePage } from "./scripts/components/mainPage";
 import { handleDataPage } from "./scripts/components/mainPage";
+import { subNavbar } from "./scripts/components/subNavbar";
 
 
 
@@ -22,6 +23,8 @@ document.addEventListener("DOMContentLoaded", () => {
     handlePage(allData.allData,allData.gamesByGenre)
     handleDataPage(allData.allData,allData.gamesByGenre)
     handleNavbarClick(allData.allData,allData.gamesByGenre)
+    subNavbar(allData.gamesByGenre)
+
 
 
 

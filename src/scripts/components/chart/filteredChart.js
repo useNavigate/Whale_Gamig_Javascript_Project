@@ -333,7 +333,7 @@ scrollToTop()
    sideInfo.appendChild(genreSelect);
 
    const selectOption = document.createElement("option");
-   selectOption.setAttribute("label", "Select Options");
+   selectOption.setAttribute("label", "Select Category");
    selectOption.setAttribute("value", "nocap");
    selectOption.selected = true;
    selectOption.disabled = true;

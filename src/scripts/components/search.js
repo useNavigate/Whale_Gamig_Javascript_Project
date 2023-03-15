@@ -10,7 +10,8 @@ export const renderSearchBar = () => {
   search.innerHTML = `
 
 
-  <input id ="searchInput" type="text" placeholder="search">
+ <input id="searchInput" type="text" placeholder='🔍Search...'>
+
 
 
 
