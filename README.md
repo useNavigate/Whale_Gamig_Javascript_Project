@@ -49,37 +49,37 @@ Javascript  Project based on live game API
 
 
 ## Implementation Timeline
-> ### Friday
+ ### Friday
 > - fetch all the API data
 >   - store as a variable to reduce amount of unnecessary fetch calls
 > - render basic html
 >   - navbar / main page
 
-> ### Saturday
+ ### Saturday
 > - Construct Data
 >   - restructure the fetched data into a suitable format for data visualization, which enable accurate representation of trends and patterns in the gaming industry
 > - Learn about d3 line graph 
 > - Parse data to csv
 
-> ### Sunday
+ ### Sunday
 > - Render basic d3 line graph
 > - Add tool tip for the graph 
 
-> ### Monday
+ ### Monday
 > - DOM
 >   - Added featured functionality eventlistners for 
 >      - Click ( navbar / main page / cards / filter)
 >   - Input (search)
 >      - improved the search functionality by implementing a delay in fetching results. the API won't be called immediately when the user types in the search bar, but rather after a brief pause in typing to reduce unnecessary API calls.  
 
-> ### Tuesday
+ ### Tuesday
 > - Added favicon
 > - CSS for Styling
 > - linkes all the component by reconstructing DOM
 > - Fixed minor bugs
 
 
-> ### Wednesday
+ ### Wednesday
 > - Testing
 >   - finalize the website
 > - Update README.md 
