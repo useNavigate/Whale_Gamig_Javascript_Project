@@ -1,3 +1,6 @@
+import { scrollToTop } from "./navbar";
+
+scrollToTop;
 export const renderSearchBar = () => {
   const menu = document.getElementById("menu");
   const search = document.createElement("li");
@@ -21,8 +24,16 @@ export function handleSearch(games, main) {
     const searchTerm = event.target.value;
     if (searchTerm.length > 3) {
       getSearchResult(games, searchTerm, main);
-    } else {
+    } else if (searchTerm === "") {
       main.innerHTML = "";
+      main.innerHTML = `<h1 style="color:white;">Please Type Something to Search!</h1>`;
+    } else if (searchTerm.length < 3) {
+      main.innerHTML = "";
+      main.innerHTML = `<h1 style="color:white;">Search Keywords Need To Be Longer Than 3 Characters</h1>`;
+    } else {
+      main.style.backgroundColor = "#132f4c";
+      main.innerHTML = "";
+      main.innerHTML = `<img src="https://cdn.discordapp.com/attachments/952591530626023464/1085403940591501342/404.png" width="600px">`;
     }
   });
 }
@@ -32,35 +43,36 @@ function getSearchResult(games, searchTerm, main) {
     const gameTitle = game.title.toLowerCase();
     const searchInput = searchTerm.toLowerCase();
     // if (gameTitle[0] === searchInput[0] && gameTitle.includes(searchInput)) {
-         if (gameTitle[0] === searchInput[0] && gameTitle.includes(searchInput)) {
-          let id = game.id
-          console.log(game.id)
+    if (gameTitle[0] === searchInput[0] && gameTitle.includes(searchInput)) {
+      let id = game.id;
+      console.log(game.id);
       // (game);
 
-//       const card = document.createElement("div");
-//       card.innerHTML = `
-// <div class="card" style="background-image: url('${game.thumbnail}'); background-size: cover;">
-//       <ul class="card_info">
-//       <li><h1 id ="game_title">${game.title}</h1></li>
-//       <li class="genre">${game.genre}</li>
-//       <li class="description">${game.short_description}</li>
-//       </ul>
-//       </div>
-//       `;
- fetch(`https://mmo-games.p.rapidapi.com/game?id=${id}`, {
-   method: "GET",
-   headers: {
-     "X-RapidAPI-Key": "5baae6da7amsh6d563cbf11ac2a0p1d6d56jsn48853ab50d67",
-     "X-RapidAPI-Host": "mmo-games.p.rapidapi.com",
-   },
- })
-   .then((res) => res.json())
-   .then((data) => {
-     console.log(data);
-     main.innerHTML = "";
-     const detail_section = document.createElement("div");
-     detail_section.classList.add("d_main");
-     detail_section.innerHTML = `
+      //       const card = document.createElement("div");
+      //       card.innerHTML = `
+      // <div class="card" style="background-image: url('${game.thumbnail}'); background-size: cover;">
+      //       <ul class="card_info">
+      //       <li><h1 id ="game_title">${game.title}</h1></li>
+      //       <li class="genre">${game.genre}</li>
+      //       <li class="description">${game.short_description}</li>
+      //       </ul>
+      //       </div>
+      //       `;
+      fetch(`https://mmo-games.p.rapidapi.com/game?id=${id}`, {
+        method: "GET",
+        headers: {
+          "X-RapidAPI-Key":
+            "5baae6da7amsh6d563cbf11ac2a0p1d6d56jsn48853ab50d67",
+          "X-RapidAPI-Host": "mmo-games.p.rapidapi.com",
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          main.innerHTML = "";
+          const detail_section = document.createElement("div");
+          detail_section.classList.add("d_main");
+          detail_section.innerHTML = `
 
   <div class="d_pictures">
   <h1>${data.title}</h1>
@@ -101,8 +113,10 @@ function getSearchResult(games, searchTerm, main) {
   </div>
 
             `;
-     main.appendChild(detail_section);
-   });
+          main.appendChild(detail_section);
+          main.style.backgroundColor = "#132f4c";
+          scrollToTop();
+        });
     } //else{
     //   main.innerHTML = "";
     //   main.innerHTML = "can't find it ";
