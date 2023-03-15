@@ -24,11 +24,11 @@ Javascript  Project based on live game API
 
 ## Wireframes
 > ### Main Page
->![image](![image](https://user-images.githubusercontent.com/106133580/225347911-77703b4a-d1fd-41ae-a4db-2c4b4bc72d1b.png)
+>![image](https://user-images.githubusercontent.com/106133580/225347911-77703b4a-d1fd-41ae-a4db-2c4b4bc72d1b.png)
 
 
 > ### Cards for Quick Views 
-> ![image](![image](https://user-images.githubusercontent.com/106133580/225348069-9148d092-97c0-4077-812d-70c7c2775246.png)
+> ![image](https://user-images.githubusercontent.com/106133580/225348069-9148d092-97c0-4077-812d-70c7c2775246.png)
 
 
 > ### Detail Sections 
@@ -65,14 +65,15 @@ Javascript  Project based on live game API
 
 > ### Monday
 > - DOM
->  - Added featured functionality eventlistners for 
->   - Click ( navbar / main page / filter)
+>   - Added featured functionality eventlistners for 
+>      - Click ( navbar / main page / filter)
 >   - Input (search)
->    - improvised search functions so that it wont fetch right away when input value changes   
+>      - improvised search functions so that it wont fetch right away when input value changes   
 
 > ### Tuesday
 > - Added favicon
 > - CSS for Styling
+> - linkes all the component by reconstructing DOM
 > - Fixed minor bugs
 
 
