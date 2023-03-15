@@ -13,13 +13,13 @@ Javascript  Project based on live game API
 
 ## Functionality & MVPs
 > In  `Whale Gaming` , users will be able to:
-> - Data Visualization
->   - Our website provides a visually appealing and interactive way of exploring the number of games released per year based on categories
+> - View data visualization
+>   - Whale Gaming provides a visually appealing and interactive way of exploring the number of games released per year based on categories
 
-> - Search Functionality
+> - Use the search functionality
 >   -  Users can search for their favorite games using our search bar
 
-> - Game Details
+> - View game details
 >   - Users can click on a game card to view its details such as description, gameplay, and more. This helps users to get a better understanding of the game before deciding to play or purchase it
 
 ## Wireframes
@@ -51,11 +51,13 @@ Javascript  Project based on live game API
 ## Implementation Timeline
 > ### Friday
 > - fetch all the API data
+>   - store as a variable to reduce amount of unnecessary fetch calls
 > - render basic html
 >   - navbar / main page
 
 > ### Saturday
-> - Data construction
+> - Construct Data
+>   - restructure the fetched data into a suitable format for data visualization, which enable accurate representation of trends and patterns in the gaming industry
 > - Learn about d3 line graph 
 > - Parse data to csv
 
@@ -66,9 +68,9 @@ Javascript  Project based on live game API
 > ### Monday
 > - DOM
 >   - Added featured functionality eventlistners for 
->      - Click ( navbar / main page / filter)
+>      - Click ( navbar / main page / cards / filter)
 >   - Input (search)
->      - To enhance the user experience, we improved the search functionality by implementing a delay in fetching results. This means that the API won't be called immediately when the user types in the search bar, but rather after a brief pause in typing. This approach helps to reduce unnecessary API calls and provides a more seamless search experience.  
+>      - improved the search functionality by implementing a delay in fetching results. the API won't be called immediately when the user types in the search bar, but rather after a brief pause in typing to reduce unnecessary API calls.  
 
 > ### Tuesday
 > - Added favicon
@@ -80,5 +82,7 @@ Javascript  Project based on live game API
 > ### Wednesday
 > - Testing
 >   - finalize the website
+> - Update README.md 
+> - Practice for the presentation 
 
 
