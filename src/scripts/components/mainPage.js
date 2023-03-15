@@ -22,7 +22,7 @@ export const renderMainPage = () => {
 </div>
 
     `;
-    scrollToTop()
+  scrollToTop();
 };
 
 export function handlePage(allData) {
@@ -34,7 +34,7 @@ export function handlePage(allData) {
     event.preventDefault();
     ("button");
     main.innerHTML = "";
-        main.style.backgroundColor = "#0a1929";
+    main.style.backgroundColor = "#0a1929";
     main.classList.add("card_page");
     allData.forEach((game) => {
       const card = document.createElement("div");
@@ -49,7 +49,7 @@ export function handlePage(allData) {
       </div>
       `;
       main.appendChild(card);
-      scrollToTop()
+      scrollToTop();
       const button = document.getElementById(game.id);
       button.addEventListener("click", (event) => {
         console.log(event.target.id);
@@ -67,9 +67,18 @@ export function handlePage(allData) {
             console.log(data);
             main.innerHTML = "";
             const detail_section = document.createElement("div");
-            detail_section.classList.add("d_main")
-      main.style.backgroundColor = "#132f4c";
-             detail_section.innerHTML = `
+            detail_section.classList.add("d_main");
+            main.style.backgroundColor = "#132f4c";
+
+            const image =
+              data.screenshots.length !== 0
+                ? [
+                    data.screenshots[0].image,
+                    data.screenshots[1].image,
+                    data.screenshots[2].image,
+                  ]
+                : "Screenshot Unavailable ";
+            detail_section.innerHTML = `
 
   <div class="d_pictures">
   <h1>${data.title}</h1>
@@ -95,9 +104,9 @@ export function handlePage(allData) {
   <div class="d_details">
       <div class="d_screenshot">
 
-    <img src="${data.screenshots[0].image}" alt="${data.title} screenshot">
-     <img src="${data.screenshots[1].image}" alt="${data.title} screenshot">
-      <img src="${data.screenshots[2].image}" alt="${data.title} screenshot">
+     <img src="${image[0]}" alt="${data.title} screenshot">
+     <img src="${image[1]}" alt="${data.title} screenshot">
+      <img src="${image[2]}" alt="${data.title} screenshot">
     </div>
 
     <div class="d_bar">
@@ -111,7 +120,7 @@ export function handlePage(allData) {
 
             `;
             main.appendChild(detail_section);
-            scrollToTop()
+            scrollToTop();
           })
           .catch((err) => console.error("error:" + err));
       });
