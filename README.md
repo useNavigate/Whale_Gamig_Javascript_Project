@@ -12,7 +12,7 @@ Javascript  Project based on live game API
 
 
 ## Functionality & MVPs
-> In  `Whale Gaming` , users will be able to:
+ In  `Whale Gaming` , users will be able to:
 > - View data visualization
 >   - Whale Gaming provides a visually appealing and interactive way of exploring the number of games released per year based on categories
 
@@ -24,19 +24,19 @@ Javascript  Project based on live game API
 
 ## Wireframes
 > ### Main Page
->![image](https://user-images.githubusercontent.com/106133580/225347911-77703b4a-d1fd-41ae-a4db-2c4b4bc72d1b.png)
+![image](https://user-images.githubusercontent.com/106133580/225347911-77703b4a-d1fd-41ae-a4db-2c4b4bc72d1b.png)
 
 
 > ### Cards for Quick Views 
-> ![image](https://user-images.githubusercontent.com/106133580/225348069-9148d092-97c0-4077-812d-70c7c2775246.png)
+ ![image](https://user-images.githubusercontent.com/106133580/225348069-9148d092-97c0-4077-812d-70c7c2775246.png)
 
 
 > ### Detail Sections 
-> ![image](https://user-images.githubusercontent.com/106133580/225348352-847bfc8f-ad42-49b6-b286-47e34cfa10e3.png)
+ ![image](https://user-images.githubusercontent.com/106133580/225348352-847bfc8f-ad42-49b6-b286-47e34cfa10e3.png)
 
 
 > ### Data Visualzation 
-> ![image](https://user-images.githubusercontent.com/106133580/225348426-4131a92e-1a79-4242-b7ca-8e5e581ae2d5.png)
+ ![image](https://user-images.githubusercontent.com/106133580/225348426-4131a92e-1a79-4242-b7ca-8e5e581ae2d5.png)
 
 
 
