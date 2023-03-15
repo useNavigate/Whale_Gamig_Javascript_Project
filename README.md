@@ -52,7 +52,7 @@ Javascript  Project based on live game API
 > ### Friday
 > - fetch all the API data
 > - render basic html
-> - functionality for search
+>   - navbar / main page
 
 > ### Saturday
 > - Data construction
@@ -68,7 +68,7 @@ Javascript  Project based on live game API
 >   - Added featured functionality eventlistners for 
 >      - Click ( navbar / main page / filter)
 >   - Input (search)
->      - improvised search functions so that it wont fetch right away when input value changes   
+>      - To enhance the user experience, we improved the search functionality by implementing a delay in fetching results. This means that the API won't be called immediately when the user types in the search bar, but rather after a brief pause in typing. This approach helps to reduce unnecessary API calls and provides a more seamless search experience.  
 
 > ### Tuesday
 > - Added favicon
