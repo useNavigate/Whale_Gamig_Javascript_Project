@@ -2,7 +2,7 @@ import { scrollToTop } from "./navbar";
 
 
 
-export const subNavbar = (genres) => {
+export const handleSubNavbar = (genres) => {
   const genreForFilter = [];
 
   Object.keys(genres).forEach((keys) => {
