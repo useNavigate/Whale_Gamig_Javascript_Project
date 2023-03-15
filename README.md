@@ -84,5 +84,6 @@ Javascript  Project based on live game API
 >   - finalize the website
 > - Update README.md 
 > - Practice for the presentation 
+> - Added github link
 
 
