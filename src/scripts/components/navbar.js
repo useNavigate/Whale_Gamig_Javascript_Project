@@ -9,7 +9,7 @@ export const renderNavbar = () => {
     <li><a href="https://usenavigate.github.io/Whale_Gaming_Javascript_Project/"><h1>🐳🐋</h1></a></li>
     <li id="game_menu">Games</li>
     <li id="stat_menu">Statistics</li>
-     <li id="profile_menu">Featured</li>
+     <li id="profile_menu"><a href="https://github.com/useNavigate"><i class="fa-brands fa-github"></i></a></li>
     `;
 
 
