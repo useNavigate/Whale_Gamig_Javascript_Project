@@ -14,7 +14,6 @@ let allData = null;
 let gamesByGenre = null;
 let gamesByReleaseDate = null;
 
-
 export async function getAllData(url, options) {
   try {
     const response = await fetch(url, options);
@@ -29,7 +28,7 @@ export async function getAllData(url, options) {
       gamesByReleaseDate[release_date].push(game);
     }
 
-    gamesByGenre={}
+    gamesByGenre = {};
 
     for (const game of allData) {
       const genre = game.genre;
@@ -41,24 +40,18 @@ export async function getAllData(url, options) {
 
     return { allData, gamesByReleaseDate, gamesByGenre };
   } catch (err) {
-    console.error("error:" + err);
   }
 }
 
 export async function useData() {
-
   if (!allData || !gamesByReleaseDate || !gamesByGenre) {
-
     await getAllData(games, options);
   }
 
   const data = {
     allData,
     gamesByReleaseDate,
-gamesByGenre
+    gamesByGenre,
   };
   return data;
 }
-
-
-
