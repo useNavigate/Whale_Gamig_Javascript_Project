@@ -31,7 +31,7 @@ scrollToTop()
 
 <div>
 <h2>Data Visualization</h2>
-<p>To view the data visualization, navigate to the "Data Visualization" page using the <span>navbar</span> or from main page by <span>clicking</span> <span>explore</span> button.</p>
+<p>To view the data visualization, navigate to the "Data Visualization" page using the <span>navbar (statistics) </span> or from main page by <span>clicking</span> <span>explore</span> button.</p>
 </div>
 
 <div>
