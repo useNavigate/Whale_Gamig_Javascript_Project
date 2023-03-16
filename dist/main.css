@@ -70,6 +70,11 @@ section {
   color: var(--200);
 }
 
+#home a {
+  color: var(--200);
+}
+
+#menu #home:hover,
 #menu #game_menu:hover,
 #menu #profile_menu:hover,
 #menu #stat_menu:hover {
@@ -365,7 +370,8 @@ ul.about_ul li:nth-child(2n) {
   height: 40px;
   margin-right: auto;
   margin-left: auto;
-  color: white;
+  color: rgb(0, 0, 0);
+  font-weight: bolder;
   border-radius: 4px;
   border: 3px solid var(--hl);
   background-color: rgba(5, 105, 255, 0.5);
