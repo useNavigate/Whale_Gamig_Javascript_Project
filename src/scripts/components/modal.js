@@ -1,6 +1,8 @@
+import { scrollToTop } from "./navbar";
+
 export function renderPopup() {
   const popup = document.getElementById("popup");
-
+scrollToTop()
   popup.classList.add("p_show");
 
   popup.innerHTML = `
