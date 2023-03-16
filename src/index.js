@@ -5,6 +5,7 @@ import { renderMainPage } from "./scripts/components/mainPage";
 import { handlePage } from "./scripts/components/mainPage";
 import { handleDataPage } from "./scripts/components/mainPage";
 import { handleSubNavbar } from "./scripts/components/subNavbar";
+import { renderPopup } from "./scripts/components/modal";
 
 
 
@@ -12,10 +13,10 @@ import { handleSubNavbar } from "./scripts/components/subNavbar";
 document.addEventListener("DOMContentLoaded", () => {
   const main = document.querySelector("#main");
 
+  renderPopup();
   renderNavbar();
   renderSearchBar();
   renderMainPage();
-
 
 
   useData().then((allData) => {
