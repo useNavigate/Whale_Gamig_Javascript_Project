@@ -3,7 +3,8 @@ Javascript  Project based on live game API 🎮
 
 
 
-
+# Live Link
+https://usenavigate.github.io/Whale_Gaming_Javascript_Project/
 ## Background
 > Welcome to `Whale Gaming`, a gaming website that offers information and data visualization based on the MMOBomb API. This website aims to provide a user-friendly and informative platform for gamers and enthusiasts to explore and discover games based on different categories and genres.🐋.
 
