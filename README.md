@@ -47,7 +47,7 @@ In `Whale Gaming` , users will be able to:
 
 ### index.js
 
-> - Breaking down code into separate components is an efficient and organized approach that can improve code maintenance and facilitate code reuse
+> - I approached to break down code into separate components to make it more efficient and organized
 
 ```javascript
 import { useData } from "./scripts/api";
@@ -76,14 +76,17 @@ document.addEventListener("DOMContentLoaded", () => {
     handleSubNavbar(allData.gamesByGenre);
   });
 });
-
 ```
 
 ### api.js
 
-> - Minimize inefficient fetch calls by retrieving the data once and restructuring it to suit my needs
+> - I approached to minimize inefficient fetch calls by retrieving the data once and restructuring it to suit my needs
 
 ```javascript
+let allData = null;
+let gamesByGenre = null;
+let gamesByReleaseDate = null;
+
 export async function getAllData(url, options) {
   try {
     const response = await fetch(url, options);
