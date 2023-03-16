@@ -12,8 +12,6 @@ const options = {
 
 let allData = null;
 let gamesByGenre = null;
-// let gamesByPlatform = null;
-// let gamesByPublisher = null;
 let gamesByReleaseDate = null;
 
 
@@ -41,24 +39,16 @@ export async function getAllData(url, options) {
       gamesByGenre[genre].push(game);
     }
 
-    return { allData, gamesByReleaseDate, gamesByGenre }; // it actually needs to return the promise value that has these data i want
+    return { allData, gamesByReleaseDate, gamesByGenre };
   } catch (err) {
     console.error("error:" + err);
   }
 }
 
-/*
-  this function returns data so i don't have to fetch every single time
-  this will only fetch if data is not there also it helps me to get out from call back
-  & chain hell that i was stuck for long time... 😭
-
-  and exporting this because exporting allData and gamesByGenre are useless... it still going to be undefined and its 'promise value'
-  so its better to export this function that actually returns the data i need
-*/
 export async function useData() {
 
   if (!allData || !gamesByReleaseDate || !gamesByGenre) {
-    /* this is way to get out from call back hell and also we do not need to fetch EVERY SINGLE TIME*/
+
     await getAllData(games, options);
   }
 
