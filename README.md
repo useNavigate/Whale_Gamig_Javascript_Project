@@ -64,35 +64,7 @@ export async function useData() {
 }
 ```
 
-### Line Graph
 
-> - I excluded games without a specific release date, marked as '0000-00-00', from my dataset. To better visualize the distribution of game releases over time, I created a custom function that counts the number of games released in each year and used it to generate the y-axis.
-
-```javascript
-export function createChart(data,genre) {
-  // Extract the release year from each game and create an array of objects
-  const games = data
-    .filter((d) => d.release_date !== "0000") // exclude games with release year of "0000"
-    .map((d) => {
-      const year = Date.parse(d.release_date)
-        ? new Date(d.release_date).getFullYear()
-        : null;
-      return { release_year: year };
-    });
-
-  // Count the number of games released in each year
-  const totals = games.reduce((acc, game) => {
-    if (game.release_year !== null) {
-      if (!acc[game.release_year]) {
-        acc[game.release_year] = 0;
-      }
-      acc[game.release_year]++;
-    }
-    return acc;
-  }, {});
-
-  ...}
-```
 
 ## Technologies, Libraries, APIs
 
