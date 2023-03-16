@@ -45,76 +45,11 @@ In `Whale Gaming` , users will be able to:
 
 > ![image](gif/stat.gif)
 
-### index.js
-
-> - I approached to break down code into separate components to make it more efficient and organized
-
-```javascript
-import { useData } from "./scripts/api";
-import { renderNavbar, handleNavbarClick } from "./scripts/components/navbar";
-import { renderSearchBar, handleSearch } from "./scripts/components/search";
-import {
-  renderMainPage,
-  handlePage,
-  handleDataPage,
-} from "./scripts/components/mainPage";
-import { handleSubNavbar } from "./scripts/components/subNavbar";
-import { renderPopup } from "./scripts/components/modal";
-
-document.addEventListener("DOMContentLoaded", () => {
-  const main = document.querySelector("#main");
-  renderPopup();
-  renderNavbar();
-  renderSearchBar();
-  renderMainPage();
-
-  useData().then((allData) => {
-    handleSearch(allData.allData, main);
-    handlePage(allData.allData, allData.gamesByGenre);
-    handleDataPage(allData.allData, allData.gamesByGenre);
-    handleNavbarClick(allData.allData, allData.gamesByGenre);
-    handleSubNavbar(allData.gamesByGenre);
-  });
-});
-```
-
 ### api.js
 
-> - I approached to minimize inefficient fetch calls by retrieving the data once and restructuring it to suit my needs
+> - In order to improve the user experience and avoid server errors, I created a separate function called 'useData()' that retrieves the necessary data for game searches. This allows users to search for games without triggering unnecessary fetch calls and reduces the likelihood of encountering errors.
 
 ```javascript
-let allData = null;
-let gamesByGenre = null;
-let gamesByReleaseDate = null;
-
-export async function getAllData(url, options) {
-  try {
-    const response = await fetch(url, options);
-    const games = await response.json();
-    allData = games;
-    gamesByReleaseDate = {};
-    for (const game of allData) {
-      const release_date = game.release_date;
-      if (!gamesByReleaseDate[release_date]) {
-        gamesByReleaseDate[release_date] = [];
-      }
-      gamesByReleaseDate[release_date].push(game);
-    }
-
-    gamesByGenre = {};
-
-    for (const game of allData) {
-      const genre = game.genre;
-      if (!gamesByGenre[genre]) {
-        gamesByGenre[genre] = [];
-      }
-      gamesByGenre[genre].push(game);
-    }
-
-    return { allData, gamesByReleaseDate, gamesByGenre };
-  } catch (err) {}
-}
-
 export async function useData() {
   if (!allData || !gamesByReleaseDate || !gamesByGenre) {
     await getAllData(games, options);
@@ -127,6 +62,36 @@ export async function useData() {
   };
   return data;
 }
+```
+
+### Line Graph
+
+> - I excluded games without a specific release date, marked as '0000-00-00', from my dataset. To better visualize the distribution of game releases over time, I created a custom function that counts the number of games released in each year and used it to generate the y-axis.
+
+```javascript
+export function createChart(data,genre) {
+  // Extract the release year from each game and create an array of objects
+  const games = data
+    .filter((d) => d.release_date !== "0000") // exclude games with release year of "0000"
+    .map((d) => {
+      const year = Date.parse(d.release_date)
+        ? new Date(d.release_date).getFullYear()
+        : null;
+      return { release_year: year };
+    });
+
+  // Count the number of games released in each year
+  const totals = games.reduce((acc, game) => {
+    if (game.release_year !== null) {
+      if (!acc[game.release_year]) {
+        acc[game.release_year] = 0;
+      }
+      acc[game.release_year]++;
+    }
+    return acc;
+  }, {});
+
+  ...}
 ```
 
 ## Technologies, Libraries, APIs
