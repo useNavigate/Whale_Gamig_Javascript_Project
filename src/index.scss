@@ -175,8 +175,6 @@ section{
   justify-content: center;
   min-height: 100vh;
   height:100%;
-  // padding-left: 2rem;
-  // padding-right: 2rem;
   align-items: center;
 }
 #menu {
@@ -185,9 +183,11 @@ section{
 }
 #home a{
   color:var(--200);
-
 }
 
+#menu li{
+  font-size: 20px;
+}
 #menu #home:hover,
 #menu #game_menu:hover,
 #menu #profile_menu:hover,
@@ -327,8 +327,11 @@ section{
     color:gray ;
     justify-content: space-evenly ;
 
-    font-size: 10px;
 
+}
+
+#submenu li{
+font-size: 15px;
 }
 
 #submenu li:hover{
@@ -658,7 +661,7 @@ text-decoration: none;
 
 
 #profile_menu *{
-  font-size: 20px;
+  font-size: 30px;
   color:rgb(252, 189, 53)
 }
 

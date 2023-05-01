@@ -171,6 +171,10 @@ section {
   color: var(--200);
 }
 
+#menu li {
+  font-size: 20px;
+}
+
 #menu #home:hover,
 #menu #game_menu:hover,
 #menu #profile_menu:hover,
@@ -313,7 +317,10 @@ section {
   z-index: 99;
   color: gray;
   justify-content: space-evenly;
-  font-size: 10px;
+}
+
+#submenu li {
+  font-size: 15px;
 }
 
 #submenu li:hover {
@@ -610,7 +617,7 @@ svg {
 }
 
 #profile_menu * {
-  font-size: 20px;
+  font-size: 30px;
   color: rgb(252, 189, 53);
 }
 
