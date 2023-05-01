@@ -63,7 +63,7 @@ export const handleSubNavbar = (genres) => {
               const detail_section = document.createElement("div");
               detail_section.classList.add("d_main");
               main.style.backgroundColor = "#132f4c";
-              console.log(data.screenshots)
+
                const image =
                  data.screenshots.length !== 0
                    ? [data.screenshots[0].image]

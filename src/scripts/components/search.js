@@ -69,6 +69,12 @@ function getSearchResult(games, searchTerm, main) {
           main.innerHTML = "";
           const detail_section = document.createElement("div");
           detail_section.classList.add("d_main");
+            const image =
+              data.screenshots.length !== 0
+                ? [data.screenshots[0].image]
+                : [
+                    "https://via.placeholder.com/640x360?text=No+image+available",
+                  ];
           detail_section.innerHTML = `
 
   <div class="d_pictures">
@@ -95,7 +101,7 @@ function getSearchResult(games, searchTerm, main) {
   <div class="d_details">
       <div class="d_screenshot">
 
-    <img src="${data.screenshots[0].image}" alt="${data.title} screenshot">
+    <img src="${image[0]}" alt="${data.title} screenshot">
 
     </div>
 

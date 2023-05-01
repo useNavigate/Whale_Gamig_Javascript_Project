@@ -594,6 +594,10 @@ svg {
   flex-direction: column;
 }
 
+.d_description p {
+  text-decoration: none;
+}
+
 #play {
   color: inherit;
   color: rgb(252, 189, 53);
