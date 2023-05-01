@@ -1,8 +1,7 @@
 import { useData } from "../../api";
 import { scrollToTop } from "../navbar";
 
-
-export function filteredChart(title,data) {
+export function filteredChart(title, data) {
   // Extract the release year from each game and create an array of objects
   const games = data
     .filter((d) => d.release_date !== "0000") // exclude games with release year of "0000"
@@ -41,7 +40,7 @@ export function filteredChart(title,data) {
       xLabel: "Released Year",
       width: 700,
       height: 400,
-       color: "#007fff",
+      color: "#007fff",
       // color: "red", seems like this line can overwrites the colors
       // specify the tick format for the x-axis
       xAxisFormat: d3.timeFormat("%Y"),
@@ -49,101 +48,166 @@ export function filteredChart(title,data) {
   );
 
   // Append the chart to the DOM
-let prev = document.getElementById("chart_all")
-prev.innerHTML=""
-let h1 = document.createElement("h1");
+  let prev = document.getElementById("chart_all");
+  prev.innerHTML = "";
+  let h1 = document.createElement("h1");
 
-if(title === "Card Game"){
-  h1.innerHTML = `<h1>Number of The Live <span>Card</span> Games Released per Year</h1>`;
-}else{
+  if (title === "Card Game") {
+    h1.innerHTML = `<h1>Number of The Live <span>Card</span> Games Released per Year</h1>`;
+  } else {
+    h1.innerHTML = `<h1>Number of The Live <span>${title}</span> Games Released per Year</h1>`;
+  }
+  useData().then((allData) => {
+    handleFilter(allData.gamesByGenre);
 
-  h1.innerHTML = `<h1>Number of The Live <span>${title}</span> Games Released per Year</h1>`;
-}
-
+    //adding class for main
+    const main = document.getElementById("main");
+    main.classList.add("data");
+  });
 
   let p = document.createElement("div");
+
   p.innerHTML = ` <p>This graph displays the number of games released per year, with the
         y-axis representing the total number of games and the x-axis
         representing the year of release. The graph provides a visual
         representation of the trend of game releases over time and can be used
         to identify any patterns or changes in the industry.</p>`;
 
-prev.appendChild(h1)
-prev.appendChild(p)
-prev.appendChild(chart)
+  const handleFilter = (genres) => {
+    const main = document.querySelector("#main");
+    const genreSelect = document.createElement("select");
+    genreSelect.classList.add("genre_select");
 
-useData().then((allData)=>{
-  handleFilter(allData.gamesByGenre);
+    // const sideInfo = document.querySelector(".chart_sideInfo");
+    const selectGoesHere = document.querySelector(".selectGoesHere")
+   selectGoesHere.appendChild(genreSelect);
 
-  //adding class for main
-  const main = document.getElementById("main")
-  main.classList.add("data")
-})
+    const selectOption = document.createElement("option");
+    selectOption.setAttribute("label", "Select Category");
+    selectOption.setAttribute("value", "nocap");
+    selectOption.selected = true;
+    selectOption.disabled = true;
+    genreSelect.appendChild(selectOption);
 
+    ("coming from linearChart");
+    //getting name of genres for filtering
+    const genreForFilter = [];
 
+    Object.keys(genres).forEach((keys) => {
+      if (keys !== " MMORPG") {
+        genreForFilter.push(keys);
+      }
+    });
 
-const about = {
-  Shooter:
-    "Shooter video games or shooters are a subgenre of action video games where the focus is almost entirely on the defeat of the character's enemies using the weapons given to the player.",
-  MMORPG:
-    "(Massively Multiplayer Online Role-Playing Game) is a genre of online game that focuses more on traditional RPG elements, such as character development, questing, and story progression. Players typically create and control their own character in a persistent virtual world and interact with other players to complete quests, explore the world, and engage in player versus player combat. Examples of MMORPGs include World of Warcraft, Final Fantasy XIV, and Guild Wars 2.",
-  MMOARPG:
-    "(Massively Multiplayer Online Action Role-Playing Game) is a genre of online game that blends action-oriented gameplay with role-playing elements. Players typically control a single character in a virtual world and engage in real-time combat against enemies, completing quests, and gaining experience points to level up their characters. Examples of MMOARPGs include Diablo, Path of Exile, and Torchlight.",
-  ARPG: "(Action Role-Playing Game): A video game genre that combines elements of traditional role-playing games with real-time action combat. Players control a character in a fantasy world, battling enemies and gaining experience points to level up and acquire new skills and equipment. Example: Diablo series, Path of Exile.",
-  BattleRoyale:
-    "A genre of online multiplayer video games in which a large number of players (typically 100) fight to be the last person or team standing. Players start with minimal equipment and must scavenge for weapons and items while avoiding a constantly shrinking play area. Example: Fortnite, PUBG.",
-  Strategy:
-    "A video game genre that emphasizes tactical and strategic decision-making, resource management, and long-term planning. Players control armies or civilizations, build and manage infrastructure, and engage in combat against opponents. Example: Civilization series, Age of Empires.",
-  Fighting:
-    "A genre of video games in which players compete against each other in hand-to-hand combat using a variety of martial arts moves and special attacks. Example: Street Fighter, Mortal Kombat.",
-  CardGame:
-    "A genre of video games that involve collectible cards as the primary gameplay element. Players build decks of cards with different abilities and strengths, and then use them to battle against opponents. Example: Hearthstone, Magic: The Gathering Arena.",
-  ActionRPG:
-    "A genre of role-playing games that emphasizes real-time combat and fast-paced action. Players control a character in a fantasy world, battling enemies and gaining experience points to level up and acquire new skills and equipment. Example: Dark Souls, Kingdoms of Amalur.",
-  Racing:
-    "A video game genre that simulates racing vehicles, either on land, sea, or air. Players compete against each other or against the clock to complete courses or races, trying to get the fastest time or cross the finish line first. Example: Forza Horizon, Need for Speed.",
-  MOBA: "(Multiplayer Online Battle Arena): A genre of online multiplayer video games in which players control a single character in a team-based battle against opponents. The goal is to destroy the opposing team's base while protecting their own. Example: League of Legends, Dota 2.",
-  Sports:
-    "A video game genre that simulates real-world sports, such as soccer, football, basketball, or tennis. Players control individual athletes or teams, competing against each other to win matches or championships. Example: FIFA, NBA 2K.",
-  MMOFPS:
-    "(Massively Multiplayer Online First-Person Shooter): A genre of online multiplayer video games that involve shooting and combat from a first-person perspective in a persistent virtual world. Players engage in battles against other players or non-player characters to gain experience points and advance their characters. Example: Destiny, Warframe.",
-  MMO: "(Massively Multiplayer Online): A genre of online multiplayer video games that support a large number of players in a shared virtual world. Players can interact with each other and engage in various activities such as completing quests, exploring the world, or battling enemies. Example: World of Warcraft, Guild Wars 2.",
-  Social:
-    "A video game genre that emphasizes social interaction between players. Players can create and customize their avatars, chat with other players, participate in activities, and build relationships. Example: Second Life, The Sims.",
-  Fantasy:
-    "sA video game genre that features elements of mythology, magic, and fictional creatures. Players can explore and interact with a virtual world filled with fantastical locations and characters. Example: The Elder Scrolls series, Final Fantasy series.",
-};
-const sideInfo = document.querySelector(".chart_sideInfo");
+    //get the percentage of each genre
+    const genresFilter = genreForFilter.map((key) => {
+      return [key, genres[key].length];
+    });
 
+    // (genresFilter);
 
-sideInfo.innerHTML=""
-sideInfo.innerHTML = `
-<div >
+    //assigning keys to ul
+    genresFilter.forEach((key, i) => {
+      const genreList = document.createElement("option");
+      genreList.setAttribute("value", `${key[0]}`);
+      genreList.setAttribute("id", `${key[0]}`);
+      key[1];
+
+      genreList.innerHTML = `${key[0]}`;
+
+      genreSelect.appendChild(genreList);
+    });
+
+    // (filtered)
+    let selectedOption = "nocap";
+
+    genreSelect.addEventListener("change", (event) => {
+      event.preventDefault();
+      if (event.target.value !== selectedOption) {
+        event.target.value;
+        selectedOption = event.target.value;
+        //creatingChart
+        filteredChart(selectedOption, genres[selectedOption]);
+      }
+
+      //omg finally got it
+      genres[selectedOption];
+    });
+
+    // return genres[selectedOption]
+  };
+
+  // useData().then((allData) => {
+  //   handleFilter(allData.gamesByGenre);
+
+  //   //adding class for main
+  //   const main = document.getElementById("main");
+  //   main.classList.add("data");
+  // });
+
+  prev.appendChild(h1);
+  prev.appendChild(p);
+  prev.appendChild(chart);
+
+  const about = {
+    Shooter:
+      "Shooter video games or shooters are a subgenre of action video games where the focus is almost entirely on the defeat of the character's enemies using the weapons given to the player.",
+    MMORPG:
+      "(Massively Multiplayer Online Role-Playing Game) is a genre of online game that focuses more on traditional RPG elements, such as character development, questing, and story progression. Players typically create and control their own character in a persistent virtual world and interact with other players to complete quests, explore the world, and engage in player versus player combat. Examples of MMORPGs include World of Warcraft, Final Fantasy XIV, and Guild Wars 2.",
+    MMOARPG:
+      "(Massively Multiplayer Online Action Role-Playing Game) is a genre of online game that blends action-oriented gameplay with role-playing elements. Players typically control a single character in a virtual world and engage in real-time combat against enemies, completing quests, and gaining experience points to level up their characters. Examples of MMOARPGs include Diablo, Path of Exile, and Torchlight.",
+    ARPG: "(Action Role-Playing Game): A video game genre that combines elements of traditional role-playing games with real-time action combat. Players control a character in a fantasy world, battling enemies and gaining experience points to level up and acquire new skills and equipment. Example: Diablo series, Path of Exile.",
+    BattleRoyale:
+      "A genre of online multiplayer video games in which a large number of players (typically 100) fight to be the last person or team standing. Players start with minimal equipment and must scavenge for weapons and items while avoiding a constantly shrinking play area. Example: Fortnite, PUBG.",
+    Strategy:
+      "A video game genre that emphasizes tactical and strategic decision-making, resource management, and long-term planning. Players control armies or civilizations, build and manage infrastructure, and engage in combat against opponents. Example: Civilization series, Age of Empires.",
+    Fighting:
+      "A genre of video games in which players compete against each other in hand-to-hand combat using a variety of martial arts moves and special attacks. Example: Street Fighter, Mortal Kombat.",
+    CardGame:
+      "A genre of video games that involve collectible cards as the primary gameplay element. Players build decks of cards with different abilities and strengths, and then use them to battle against opponents. Example: Hearthstone, Magic: The Gathering Arena.",
+    ActionRPG:
+      "A genre of role-playing games that emphasizes real-time combat and fast-paced action. Players control a character in a fantasy world, battling enemies and gaining experience points to level up and acquire new skills and equipment. Example: Dark Souls, Kingdoms of Amalur.",
+    Racing:
+      "A video game genre that simulates racing vehicles, either on land, sea, or air. Players compete against each other or against the clock to complete courses or races, trying to get the fastest time or cross the finish line first. Example: Forza Horizon, Need for Speed.",
+    MOBA: "(Multiplayer Online Battle Arena): A genre of online multiplayer video games in which players control a single character in a team-based battle against opponents. The goal is to destroy the opposing team's base while protecting their own. Example: League of Legends, Dota 2.",
+    Sports:
+      "A video game genre that simulates real-world sports, such as soccer, football, basketball, or tennis. Players control individual athletes or teams, competing against each other to win matches or championships. Example: FIFA, NBA 2K.",
+    MMOFPS:
+      "(Massively Multiplayer Online First-Person Shooter): A genre of online multiplayer video games that involve shooting and combat from a first-person perspective in a persistent virtual world. Players engage in battles against other players or non-player characters to gain experience points and advance their characters. Example: Destiny, Warframe.",
+    MMO: "(Massively Multiplayer Online): A genre of online multiplayer video games that support a large number of players in a shared virtual world. Players can interact with each other and engage in various activities such as completing quests, exploring the world, or battling enemies. Example: World of Warcraft, Guild Wars 2.",
+    Social:
+      "A video game genre that emphasizes social interaction between players. Players can create and customize their avatars, chat with other players, participate in activities, and build relationships. Example: Second Life, The Sims.",
+    Fantasy:
+      "sA video game genre that features elements of mythology, magic, and fictional creatures. Players can explore and interact with a virtual world filled with fantastical locations and characters. Example: The Elder Scrolls series, Final Fantasy series.",
+  };
+  const sideInfo = document.querySelector(".chart_sideInfo");
+
+  sideInfo.innerHTML = "";
+  sideInfo.innerHTML = `
+<div  class="selectGoesHere">
   <h1>what is <span>${title}</span> game?</h1>
-  <p>${about[title.split(" ").join("")]}</p>
+  <p >${about[title.split(" ").join("")]}</p>
 </div>`;
 
+  const about_ul = document.createElement("ul");
+  about_ul.classList.add("about_ul");
+  const description_li = document.createElement("h4");
+  description_li.innerHTML = `${title} Game Data Information List`;
 
+  about_ul.appendChild(description_li);
 
-
-
-const about_ul = document.createElement("ul");
-about_ul.classList.add("about_ul")
-const description_li = document.createElement("h4");
-description_li.innerHTML = `${title} Game Data Information List`;
-
-about_ul.appendChild(description_li);
-
-data.forEach((obj,i) => {
-  let about_li = document.createElement("li");
-  about_li.innerHTML = `<span class ="order">${i+1}</span> - ${obj.title} (${obj.release_date})
+  data.forEach((obj, i) => {
+    let about_li = document.createElement("li");
+    about_li.innerHTML = `<span class ="order">${i + 1}</span> - ${
+      obj.title
+    } (${obj.release_date})
   `;
 
-  about_ul.appendChild(about_li);
-});
+    about_ul.appendChild(about_li);
+  });
 
-sideInfo.appendChild(about_ul);
-scrollToTop()
+  sideInfo.appendChild(about_ul);
+  scrollToTop();
 
   // Copyright 2021 Observable, Inc.
   // Released under the ISC license.
@@ -319,71 +383,3 @@ scrollToTop()
     return Object.assign(svg.node(), { value: null });
   }
 }
-
-
-
-
-
- const handleFilter = (genres) => {
-   const main = document.querySelector("#main");
-   const genreSelect = document.createElement("select");
-   genreSelect.classList.add("genre_select");
-
-   const sideInfo = document.querySelector(".chart_sideInfo");
-   sideInfo.appendChild(genreSelect);
-
-   const selectOption = document.createElement("option");
-   selectOption.setAttribute("label", "Select Category");
-   selectOption.setAttribute("value", "nocap");
-   selectOption.selected = true;
-   selectOption.disabled = true;
-   genreSelect.appendChild(selectOption);
-
-   ("coming from linearChart");
-   //getting name of genres for filtering
-   const genreForFilter = [];
-
-   Object.keys(genres).forEach((keys) => {
-     if (keys !== " MMORPG") {
-       genreForFilter.push(keys);
-     }
-   });
-
-   //get the percentage of each genre
-   const genresFilter = genreForFilter.map((key) => {
-     return [key, genres[key].length];
-   });
-
-   // (genresFilter);
-
-   //assigning keys to ul
-   genresFilter.forEach((key, i) => {
-     const genreList = document.createElement("option");
-     genreList.setAttribute("value", `${key[0]}`);
-     genreList.setAttribute("id", `${key[0]}`);
-     (key[1]);
-
-     genreList.innerHTML = `${key[0]}`;
-
-     genreSelect.appendChild(genreList);
-   });
-
-
-   // (filtered)
-   let selectedOption = "nocap";
-
-   genreSelect.addEventListener("change", (event) => {
-     event.preventDefault();
-     if (event.target.value !== selectedOption) {
-       (event.target.value);
-       selectedOption = event.target.value;
-       //creatingChart
-       filteredChart(selectedOption, genres[selectedOption]);
-     }
-
-     //omg finally got it
-     (genres[selectedOption]);
-   });
-
-   // return genres[selectedOption]
- };
