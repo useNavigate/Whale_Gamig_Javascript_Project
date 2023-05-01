@@ -10,7 +10,8 @@ export const renderNavbar = () => {
     <li id="stat_menu">Statistics</li>
     <ul class="onlinePresence">
        <li id="profile_menu"><a href="https://github.com/useNavigate"><i class="fa-brands fa-github"></i></a>
-       <a href="https://www.linkedin.com/in/use-navigate-798165261/"><i
+       <a href="https://www.linkedin.com/in/sara-ryu-798165261/">
+       <i
             class="fa-brands fa-linkedin"></i></a>
        </li>
 </ul>
