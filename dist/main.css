@@ -48,13 +48,15 @@ body ::-webkit-scrollbar-thumb:hover {
 }
 
 .p_show {
+  max-height: fit-content;
   z-index: 999;
   width: 100%;
   min-height: 100vh;
   height: 100%;
+  max-height: fit-content;
   margin: auto;
   background-color: rgba(0, 0, 0, 0.8);
-  position: absolute;
+  position: fixed;
   top: 0px;
   left: 0;
   right: 0;
@@ -68,7 +70,9 @@ body ::-webkit-scrollbar-thumb:hover {
 }
 
 #popup {
+  max-height: fit-content;
   height: 100%;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
