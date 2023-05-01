@@ -8,10 +8,12 @@ export const renderNavbar = () => {
     <li id="home"><a href="https://usenavigate.github.io/Whale_Gaming_Javascript_Project/">Home</a></li>
     <li id="game_menu">Games</li>
     <li id="stat_menu">Statistics</li>
-       <li id="profile_menu"><a href="https://github.com/useNavigate"><i class="fa-brands fa-github"></i></a></li>
-      <li id="profile_menu"><a href="https://www.linkedin.com/in/use-navigate-798165261/"><i
-            class="fa-brands fa-linkedin"></i></a></li>
-
+    <ul class="onlinePresence">
+       <li id="profile_menu"><a href="https://github.com/useNavigate"><i class="fa-brands fa-github"></i></a>
+       <a href="https://www.linkedin.com/in/use-navigate-798165261/"><i
+            class="fa-brands fa-linkedin"></i></a>
+       </li>
+</ul>
     `;
 };
 
@@ -68,8 +70,7 @@ export function handleNavbarClick(allData, data) {
               data.screenshots.length !== 0
                 ? [
                     data.screenshots[0].image,
-                    data.screenshots[1].image,
-                    data.screenshots[2].image,
+
                   ]
                 : "Screenshot Unavailable ";
             detail_section.innerHTML = `
@@ -99,8 +100,7 @@ export function handleNavbarClick(allData, data) {
       <div class="d_screenshot">
 
     <img src="${image[0]}" alt="${data.title} screenshot">
-     <img src="${image[1]}" alt="${data.title} screenshot">
-      <img src="${image[2]}" alt="${data.title} screenshot">
+
     </div>
 
     <div class="d_bar">

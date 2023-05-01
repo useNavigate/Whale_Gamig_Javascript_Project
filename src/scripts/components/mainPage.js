@@ -74,8 +74,7 @@ export function handlePage(allData) {
               data.screenshots.length !== 0
                 ? [
                     data.screenshots[0].image,
-                    data.screenshots[1].image,
-                    data.screenshots[2].image,
+
                   ]
                 : "Screenshot Unavailable ";
             detail_section.innerHTML = `
@@ -105,8 +104,7 @@ export function handlePage(allData) {
       <div class="d_screenshot">
 
      <img src="${image[0]}" alt="${data.title} screenshot">
-     <img src="${image[1]}" alt="${data.title} screenshot">
-      <img src="${image[2]}" alt="${data.title} screenshot">
+
     </div>
 
     <div class="d_bar">

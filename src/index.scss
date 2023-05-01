@@ -188,14 +188,24 @@ section{
 #menu li{
   font-size: 20px;
 }
+
+
+#menu #profile_menu:hover{
+      cursor: pointer;
+}
 #menu #home:hover,
 #menu #game_menu:hover,
-#menu #profile_menu:hover,
 #menu #stat_menu:hover {
   background-color: var(--1000);
   color: var(--600);
   cursor: pointer;
 }
+
+
+.onlinePresence{
+  display:flex;
+}
+
 .main_page_wrapper {
   width: 100%;
   display: flex;
@@ -376,12 +386,11 @@ font-size: 15px;
 
 
 #chart_all h1 {
-    // border-left: 5px solid var(--hl);
   color: var(--1200);
   font-size: 30px;
 
   margin-bottom: 1rem;
-  // font-weight: bolder;
+
 }
 #chart_all span{
   color:var(--hl);
@@ -575,11 +584,11 @@ justify-content: space-around;
 padding-left:4rem;
 padding-right: 4rem;
 color:white;
-margin-bottom: 300px;
+display: flex;
+  align-items: center;
+
 }
-.d_main *{
-  // border:1px solid var(--500)
-}
+
 .d_pictures{
 width:400px;
 }
@@ -599,13 +608,15 @@ width:400px;
 .d_screenshot{
   border-bottom: 2px solid rgb(252, 189, 53);
   display:flex;
+  flex-direction: column;
   justify-content: space-between;
   padding-left:8px;
   padding-right:8px;
   padding-bottom:1.8rem;
+
 }
 .d_screenshot *{
-  width:150px;
+  width:500px;
   box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.7);
 }
 
@@ -627,9 +638,7 @@ color: rgb(252, 189, 53);
   flex-direction: column;
 
 }
-.d_description p{
-  margin-bottom:0.5rem;
-}
+
 #play{
   color: inherit;
 color:rgb(252, 189, 53);
@@ -662,7 +671,9 @@ text-decoration: none;
 
 #profile_menu *{
   font-size: 30px;
-  color:rgb(252, 189, 53)
+  color:rgb(252, 189, 53);
+  margin-left:5px;
+  margin-right:5px;
 }
 
 
@@ -686,6 +697,7 @@ text-decoration: none;
   margin-left:8px;
   margin-right:8px;
 }
+
 
 // #footer:hover{
 //   cursor: not-allowed;

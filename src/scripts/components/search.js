@@ -8,14 +8,8 @@ export const renderSearchBar = () => {
   search.setAttribute("id", "search");
   menu.appendChild(search);
   search.innerHTML = `
-
-
  <input id="searchInput" type="text" placeholder='🔍Search...'>
-
-
-
-
-    `;
+ `;
 };
 
 export function handleSearch(games, main) {
@@ -102,8 +96,7 @@ function getSearchResult(games, searchTerm, main) {
       <div class="d_screenshot">
 
     <img src="${data.screenshots[0].image}" alt="${data.title} screenshot">
-     <img src="${data.screenshots[1].image}" alt="${data.title} screenshot">
-      <img src="${data.screenshots[2].image}" alt="${data.title} screenshot">
+
     </div>
 
     <div class="d_bar">

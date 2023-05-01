@@ -175,13 +175,20 @@ section {
   font-size: 20px;
 }
 
+#menu #profile_menu:hover {
+  cursor: pointer;
+}
+
 #menu #home:hover,
 #menu #game_menu:hover,
-#menu #profile_menu:hover,
 #menu #stat_menu:hover {
   background-color: var(--1000);
   color: var(--600);
   cursor: pointer;
+}
+
+.onlinePresence {
+  display: flex;
 }
 
 .main_page_wrapper {
@@ -528,7 +535,8 @@ svg {
   padding-left: 4rem;
   padding-right: 4rem;
   color: white;
-  margin-bottom: 300px;
+  display: flex;
+  align-items: center;
 }
 
 .d_pictures {
@@ -552,6 +560,7 @@ svg {
 .d_screenshot {
   border-bottom: 2px solid rgb(252, 189, 53);
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   padding-left: 8px;
   padding-right: 8px;
@@ -559,7 +568,7 @@ svg {
 }
 
 .d_screenshot * {
-  width: 150px;
+  width: 500px;
   box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.7);
 }
 
@@ -579,10 +588,6 @@ svg {
   height: 100%;
   display: flex;
   flex-direction: column;
-}
-
-.d_description p {
-  margin-bottom: 0.5rem;
 }
 
 #play {
@@ -619,6 +624,8 @@ svg {
 #profile_menu * {
   font-size: 30px;
   color: rgb(252, 189, 53);
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 #footer {
