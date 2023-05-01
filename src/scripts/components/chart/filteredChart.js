@@ -115,7 +115,7 @@ const about = {
 };
 const sideInfo = document.querySelector(".chart_sideInfo");
 
-console.log(title)
+
 sideInfo.innerHTML=""
 sideInfo.innerHTML = `
 <div >
@@ -123,7 +123,7 @@ sideInfo.innerHTML = `
   <p>${about[title.split(" ").join("")]}</p>
 </div>`;
 
-console.log(data);
+
 
 
 

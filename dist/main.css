@@ -302,8 +302,8 @@ section {
 }
 
 #search input::placeholder {
-  color: var(--1200);
-  font-weight: 600;
+  color: rgb(234, 0, 255);
+  font-weight: 700;
 }
 
 #search input:focus {

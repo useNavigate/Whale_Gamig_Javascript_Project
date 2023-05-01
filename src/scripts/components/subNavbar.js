@@ -11,8 +11,7 @@ export const handleSubNavbar = (genres) => {
     }
   });
 
-  console.log("coming from subNav");
-  console.log(genreForFilter);
+
 
   const submenu = document.querySelector("#submenu");
   genreForFilter.forEach((genre) => {
@@ -26,7 +25,7 @@ export const handleSubNavbar = (genres) => {
       main.style.backgroundColor = "#0a1929";
       main.innerHTML = "";
       main.classList.add("cards");
-      console.log(genres[event.target.id]);
+
       let games = genres[event.target.id];
       games.forEach((game) => {
         const card = document.createElement("div");
@@ -47,7 +46,7 @@ export const handleSubNavbar = (genres) => {
         //buttons
         const button = document.getElementById(game.id);
         button.addEventListener("click", (event) => {
-          console.log(event.target.id);
+
           /// now it needs to fetch the data based on the id
           fetch(`https://mmo-games.p.rapidapi.com/game?id=${event.target.id}`, {
             method: "GET",
@@ -59,18 +58,20 @@ export const handleSubNavbar = (genres) => {
           })
             .then((res) => res.json())
             .then((data) => {
-              console.log(data);
+
               main.innerHTML = "";
               const detail_section = document.createElement("div");
               detail_section.classList.add("d_main");
               main.style.backgroundColor = "#132f4c";
-              const image =
-                data.screenshots.length !== 0
-                  ? [
-                      data.screenshots[0].image,
+              console.log(data.screenshots)
+               const image =
+                 data.screenshots.length !== 0
+                   ? [data.screenshots[0].image]
+                   : ["https://via.placeholder.com/640x360?text=No+image+available"];
 
-                    ]
-                  : "Screenshot Unavailable ";
+
+
+
               detail_section.innerHTML = `
 
   <div class="d_pictures">
@@ -98,7 +99,6 @@ export const handleSubNavbar = (genres) => {
       <div class="d_screenshot">
 
     <img src="${image[0]}" alt="${data.title} screenshot">
-
     </div>
 
     <div class="d_bar">

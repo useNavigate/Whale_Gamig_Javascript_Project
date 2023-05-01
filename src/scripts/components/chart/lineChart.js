@@ -105,7 +105,7 @@ const genresFilter = genreForFilter.map((key) => {
   return [key, genre[key].length];
 });
 
-console.log(genresFilter)
+
 
 const about_ul = document.createElement("ul")
 about_ul.classList.add("about_ul")

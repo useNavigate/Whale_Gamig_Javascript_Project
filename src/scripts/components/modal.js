@@ -47,7 +47,7 @@ scrollToTop()
 
 const closeButton = document.getElementById("b_close");
       closeButton.addEventListener("click", (event) => {
-        console.log(event.target)
+
         if (event.target == closeButton) {
           popup.style.display = "none";
         }

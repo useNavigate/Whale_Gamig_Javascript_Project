@@ -42,7 +42,7 @@ function getSearchResult(games, searchTerm, main) {
     // if (gameTitle[0] === searchInput[0] && gameTitle.includes(searchInput)) {
     if (gameTitle[0] === searchInput[0] && gameTitle.includes(searchInput)) {
       let id = game.id;
-      console.log(game.id);
+
       // (game);
 
       //       const card = document.createElement("div");
@@ -65,7 +65,7 @@ function getSearchResult(games, searchTerm, main) {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
+
           main.innerHTML = "";
           const detail_section = document.createElement("div");
           detail_section.classList.add("d_main");

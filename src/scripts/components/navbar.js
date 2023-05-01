@@ -49,7 +49,7 @@ export function handleNavbarClick(allData, data) {
       scrollToTop();
       const button = document.getElementById(game.id);
       button.addEventListener("click", (event) => {
-        console.log(event.target.id);
+
         /// now it needs to fetch the data based on the id
         fetch(`https://mmo-games.p.rapidapi.com/game?id=${event.target.id}`, {
           method: "GET",
@@ -61,18 +61,18 @@ export function handleNavbarClick(allData, data) {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+
             main.innerHTML = "";
             const detail_section = document.createElement("div");
             detail_section.classList.add("d_main");
             main.style.backgroundColor = "#132f4c";
-            const image =
-              data.screenshots.length !== 0
-                ? [
-                    data.screenshots[0].image,
+           const image =
+             data.screenshots.length !== 0
+               ? [data.screenshots[0].image]
+               : [
+                   "https://via.placeholder.com/640x360?text=No+image+available",
+                 ];
 
-                  ]
-                : "Screenshot Unavailable ";
             detail_section.innerHTML = `
 
   <div class="d_pictures">
