@@ -39,22 +39,10 @@ function getSearchResult(games, searchTerm, main) {
   games.forEach((game) => {
     const gameTitle = game.title.toLowerCase();
     const searchInput = searchTerm.toLowerCase();
-    // if (gameTitle[0] === searchInput[0] && gameTitle.includes(searchInput)) {
     if (gameTitle[0] === searchInput[0] && gameTitle.includes(searchInput)) {
       let id = game.id;
 
-      // (game);
 
-      //       const card = document.createElement("div");
-      //       card.innerHTML = `
-      // <div class="card" style="background-image: url('${game.thumbnail}'); background-size: cover;">
-      //       <ul class="card_info">
-      //       <li><h1 id ="game_title">${game.title}</h1></li>
-      //       <li class="genre">${game.genre}</li>
-      //       <li class="description">${game.short_description}</li>
-      //       </ul>
-      //       </div>
-      //       `;
       fetch(`https://mmo-games.p.rapidapi.com/game?id=${id}`, {
         method: "GET",
         headers: {
@@ -108,7 +96,7 @@ function getSearchResult(games, searchTerm, main) {
     <div class="d_bar">
    <h1>Description</h1>
    </div>
-    <div class="d_description">${data.description}   <a id="play" href=${data.game_url}>Play Now</a> </div>
+    <div class="d_description">${data.description}   <a id="play" href=${data.game_url} target="_blank">Play Now</a> </div>
 
 
 

@@ -9,8 +9,8 @@ export const renderNavbar = () => {
     <li id="game_menu">Games</li>
     <li id="stat_menu">Statistics</li>
     <ul class="onlinePresence">
-       <li id="profile_menu"><a href="https://github.com/useNavigate"><i class="fa-brands fa-github"></i></a>
-       <a href="https://www.linkedin.com/in/sara-ryu-798165261/">
+       <li id="profile_menu"><a href="https://github.com/useNavigate" target="_blank"><i class="fa-brands fa-github"></i></a>
+       <a href="https://www.linkedin.com/in/sara-ryu-798165261/" target="_blank">
        <i
             class="fa-brands fa-linkedin"></i></a>
        </li>
@@ -107,7 +107,7 @@ export function handleNavbarClick(allData, data) {
     <div class="d_bar">
    <h1>Description</h1>
    </div>
-    <div class="d_description">${data.description}   <a id="play" href=${data.game_url}>Play Now</a> </div>
+    <div class="d_description">${data.description}   <a id="play" href=${data.game_url} target="_blank" >Play Now</a> </div>
 
 
 

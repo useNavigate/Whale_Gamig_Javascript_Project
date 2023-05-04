@@ -104,7 +104,7 @@ export const handleSubNavbar = (genres) => {
     <div class="d_bar">
    <h1>Description</h1>
    </div>
-    <div class="d_description">${data.description}   <a id="play" href=${data.game_url}>Play Now</a> </div>
+    <div class="d_description">${data.description}   <a id="play" href=${data.game_url} target="_blank">Play Now</a> </div>
 
 
 
